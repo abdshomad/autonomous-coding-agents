@@ -54,3 +54,9 @@ When the user triggers the next enhancement (or types `n` or `next`), the agent 
 * Keep docstrings, comments, and existing tests intact unless requested otherwise.
 * Always verify the build and runtime integrity before finalizing tasks.
 * Ensure documentation updates are clean, structured, and consistent with the existing documentation format.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
