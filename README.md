@@ -40,6 +40,12 @@ When the user triggers the next enhancement (or types `n` or `next`), the agent 
   * **`plan/next-enhancements.md`** *(created/updated dynamically)*: Detailed plan of future platform features and enhancement tasks.
 * **`docs/`**:
   * **`docs/feature-list.md`** *(created/updated dynamically)*: Chronological and structured feature log.
+  * **`docs/vibe-coding/`**: Platform-specific integration guides for autonomous vibe coding tools:
+    * [Antigravity CLI](docs/vibe-coding/antigravity-cli.md) | [Antigravity IDE](docs/vibe-coding/antigravity-ide.md)
+    * [Cursor Composer](docs/vibe-coding/cursor-composer.md) | [Cursor IDE](docs/vibe-coding/cursor-ide.md)
+    * [GitHub Copilot Workspace](docs/vibe-coding/copilot-workspace.md) | [VS Code IDE](docs/vibe-coding/vs-code.md)
+    * [OpenHands Agent](docs/vibe-coding/openhands-agent.md) | [OpenCode IDE](docs/vibe-coding/opencode-ide.md)
+    * [Aider CLI](docs/vibe-coding/aider-cli.md)
 
 ---
 
