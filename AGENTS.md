@@ -25,3 +25,5 @@ If the user types "n", "next", or requests execution of the next enhancement tas
 - Verify the build integrity of the workspace.
 - In your final response, state which task has been completed and inform the user of the exact menu or navigation path where they can view and interact with the new/updated feature.
 
+## 3. File Size & Refactoring Rules
+- **Threshold Rule**: Any new or refactored file exceeding 256 lines of code (LOC) must be refactored and split into multiple smaller, modular, and logical components/files.
