@@ -23,7 +23,9 @@ When the user requests an enhancement plan (or types `e` or `enhance`), the agen
 
 ### 2. **Task Execution (`n` or `next`)**
 When the user triggers the next enhancement (or types `n` or `next`), the agent will:
-* Read `plan/next-enhancements.md` to identify and select the most impactful enhancement task currently marked `[TODO]` (evaluating which task has the highest strategic value, functional impact, or user experience contribution rather than just taking the first one in order).
+* Read `plan/next-enhancements.md` to check the status of tasks.
+* If all enhancement tasks in `plan/next-enhancements.md` are marked `[DONE]` (or there are no tasks marked `[TODO]`), the agent must automatically execute the **Enhancement Planning (`e` or `enhance`)** workflow to generate a new set of tasks.
+* Otherwise, identify and select the most impactful enhancement task currently marked `[TODO]` (evaluating which task has the highest strategic value, functional impact, or user experience contribution rather than just taking the first one in order).
 * Implement that specific enhancement task fully in the codebase.
 * Once completed:
   1. Update that specific task's status of `plan/next-enhancements.md` to `[DONE]`.

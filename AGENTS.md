@@ -15,10 +15,13 @@ If the user types "e", "enhance", or requests an enhancement plan:
 
 ## 2. Trigger "n" or "next"
 If the user types "n", "next", or requests execution of the next enhancement task:
-- Read `/plan/next-enhancements.md` to identify and select the most impactful enhancement task currently marked `[TODO]` (evaluating which task has the highest strategic value, functional impact, or user experience contribution rather than just taking the first one in order).
+- Read `/plan/next-enhancements.md` to check the status of tasks.
+- If all enhancement tasks in `/plan/next-enhancements.md` are marked `[DONE]` (or there are no tasks marked `[TODO]`), automatically execute the **Trigger "e" or "enhance"** workflow to generate a new set of tasks.
+- Otherwise, identify and select the most impactful enhancement task currently marked `[TODO]` (evaluating which task has the highest strategic value, functional impact, or user experience contribution rather than just taking the first one in order).
 - Implement that specific enhancement task fully in the codebase.
 - Once completed:
   1. Update that specific task's status of `/plan/next-enhancements.md` to `[DONE]`.
   2. Document the new or updated feature in the `/docs/feature-list.md` file (maintaining an organized list of all platform features under the appropriate section heading).
 - Verify the build integrity of the workspace.
 - In your final response, state which task has been completed and inform the user of the exact menu or navigation path where they can view and interact with the new/updated feature.
+
