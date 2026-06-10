@@ -27,3 +27,7 @@ If the user types "n", "next", "n{x}" (where `{x}` is a positive integer represe
 
 ## 3. File Size & Refactoring Rules
 - **Threshold Rule**: Any new or refactored file exceeding 256 lines of code (LOC) must be refactored and split into multiple smaller, modular, and logical components/files.
+
+## 4. Ad-hoc Feature Requests
+- For direct feature requests not using "n"/"next", implement the feature and document it in `/docs/feature-list.md`.
+
