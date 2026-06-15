@@ -31,3 +31,8 @@ If the user types "n", "next", "n{x}" (where `{x}` is a positive integer represe
 ## 4. Ad-hoc Feature Requests
 - For direct feature requests not using "n"/"next", implement the feature and document it in `/docs/feature-list.md`.
 
+## 5. Mockup Data & Demo/Live Mode
+- Store all mock/sample data in `/data/mockup/` — keep it separate from UI components and styling.
+- Provide a mock API layer that reads from `/data/mockup/` and mirrors the real backend contract.
+- Add a switcher control (icon) in the UI to toggle **Demo** (mock API + mock data) and **Live** (real API + real data).
+
