@@ -36,3 +36,9 @@ If the user types "n", "next", "n{x}" (where `{x}` is a positive integer represe
 - Provide a mock API layer that reads from `/data/mockup/` and mirrors the real backend contract.
 - Add a switcher control (icon) in the UI to toggle **Demo** (mock API + mock data) and **Live** (real API + real data).
 
+## 6. Cloud vs Local (On-Premise)
+- Provide a setting to choose **Cloud** or **Local (on-premise)** deployment.
+- **Cloud**: use remote/cloud-hosted API endpoints and services.
+- **Local**: use on-premise/self-hosted API endpoints and services.
+- Persist the selection and route all backend/service calls to the chosen environment.
+
