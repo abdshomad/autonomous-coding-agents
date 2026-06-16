@@ -14,4 +14,4 @@ OpenHands (formerly OpenDevin) is a sandbox-based autonomous software agent that
    Read AGENTS.md and execute the next enhancement task (trigger 'next')
    ```
 2. Press Enter to launch the loop.
-3. OpenHands will spin up its agent loop, read `AGENTS.md` and `plan/next-enhancements.md`, write code files, execute terminal runs (builds/tests), and self-correct if it encounters failures. You can monitor its progress in real-time via the web interface.
+3. OpenHands will spin up its agent loop, read `AGENTS.md` and `plans/next-enhancements.md`, write code files, execute terminal runs (builds/tests), and self-correct if it encounters failures. You can monitor its progress in real-time via the web interface.

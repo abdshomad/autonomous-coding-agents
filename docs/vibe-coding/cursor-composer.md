@@ -14,4 +14,4 @@ Cursor Composer is Cursor's advanced agentic interface designed for multi-file c
    ```text
    @AGENTS.md trigger next
    ```
-3. The Agent will automatically read `AGENTS.md` and `plan/next-enhancements.md`, propose a plan, modify the required files, run test commands, and resolve errors autonomously until the task is complete.
+3. The Agent will automatically read `AGENTS.md` and `plans/next-enhancements.md`, propose a plan, modify the required files, run test commands, and resolve errors autonomously until the task is complete.
