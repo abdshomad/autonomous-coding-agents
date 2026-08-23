@@ -1,64 +1,86 @@
-# Autonomous Coding Agents
+# Autonomous Coding Agents: The `inex` Method
 
-Welcome to the **Autonomous Coding Agents** repository. This platform is designed to facilitate rapid, iterative, and automated software development orchestrated by autonomous AI agents.
-
-By establishing strict workflow protocols and structured documentation, this repository enables AI agents to plan, implement, and document platform enhancements systematically.
-
----
-
-## 🚀 How It Works
-
-The development workflow is driven by two main triggers issued by the user:
-
-### 1. **Enhancement Planning (`e` or `enhance`)**
-When the user requests an enhancement plan (or types `e` or `enhance`), the agent will:
-* Read `plans/next-enhancements.md` to understand the current platform structure, history, and active tasks.
-* Overwrite or update the active tasks list inside `plans/next-enhancements.md`.
-* The plan must cover each main section/module of the application.
-* Inside the tasks list, define **exactly 3 new enhancements per section** with:
-  1. A unique number (e.g., `1.1`, `1.2`, `1.3`).
-  2. A clear, specific description of the functional change.
-  3. A status (initially set to `[TODO]`).
-* Present this plan to the user in the final summary response.
-
-### 2. **Task Execution (`n` or `next`)**
-When the user triggers the next enhancement (or types `n` or `next`), the agent will:
-* Read `plans/next-enhancements.md` to check the status of tasks.
-* If all enhancement tasks in `plans/next-enhancements.md` are marked `[DONE]` (or there are no tasks marked `[TODO]`), the agent must automatically execute the **Enhancement Planning (`e` or `enhance`)** workflow to generate a new set of tasks.
-* Otherwise, identify and select the most impactful enhancement task currently marked `[TODO]` (evaluating which task has the highest strategic value, functional impact, or user experience contribution rather than just taking the first one in order).
-* Implement that specific enhancement task fully in the codebase.
-* Once completed:
-  1. Update that specific task's status of `plans/next-enhancements.md` to `[DONE]`.
-  2. Document the new or updated feature in the `docs/feature-list.md` file (maintaining an organized list of all platform features under the appropriate section heading).
-* Verify the build integrity of the workspace.
-* In the final response, state which task has been completed and inform the user of the exact menu or navigation path where they can view and interact with the new/updated feature.
+> **Build and evolve any software application indefinitely with just two keystrokes: type `i`, then type `n`, `n`, `n`, `n`... ♾️**
+> 
+> 🎯 **Ephemeral Steering**: Type `focus: <direction>` (or edit [`plans/focus.md`](plans/focus.md)) to pivot for 1 batch. The agent auto-returns to the PRD roadmap once done. Type `focus: reset` or `unfocus` to cancel anytime.
 
 ---
 
-## 📁 Repository Structure
+## ⚡ The Infinite Evolution Flywheel (`i` → `n, n, n... ♾️`)
 
-* **[AGENTS.md](AGENTS.md)**: Workflow rules and triggers for autonomous coding agents.
-* **`plans/`**:
-  * **`plans/next-enhancements.md`** *(created/updated dynamically)*: Detailed plan of future platform features and enhancement tasks.
-* **`docs/`**:
-  * **`docs/feature-list.md`** *(created/updated dynamically)*: Chronological and structured feature log.
-  * **`docs/vibe-coding/`**: Platform-specific integration guides for autonomous vibe coding tools:
-    * [Antigravity CLI](docs/vibe-coding/antigravity-cli.md) | [Antigravity IDE](docs/vibe-coding/antigravity-ide.md)
-    * [Cursor Composer](docs/vibe-coding/cursor-composer.md) | [Cursor IDE](docs/vibe-coding/cursor-ide.md)
-    * [GitHub Copilot Workspace](docs/vibe-coding/copilot-workspace.md) | [VS Code IDE](docs/vibe-coding/vs-code.md)
-    * [OpenHands Agent](docs/vibe-coding/openhands-agent.md) | [OpenCode IDE](docs/vibe-coding/opencode-ide.md)
-    * [Aider CLI](docs/vibe-coding/aider-cli.md)
+```mermaid
+flowchart TD
+    I["1. Type 'i'<br/>Deep Research → PRD → Scaffolding & Initial Plan"] --> N["2. Type 'n'<br/>Build Task 1 + Auto Quality Chain (t → f → c → r)"]
+    N --> N2["3. Type 'n', 'n'... ♾️<br/>Build Remaining Tasks"]
+    N2 --> AutoE{"Plan Depleted?"}
+    AutoE -- "Yes" --> E["Auto-trigger 'e'<br/>Decompose next 3 PRD enhancements"]
+    E --> N
+```
+
 
 ---
 
-## 🛠️ Contribution Guidelines
+## ⌨️ Command Cheat-Sheet
 
-* Keep docstrings, comments, and existing tests intact unless requested otherwise.
-* Always verify the build and runtime integrity before finalizing tasks.
-* Ensure documentation updates are clean, structured, and consistent with the existing documentation format.
+| Command | Action | Description |
+|:---|:---|:---|
+| **`i` / `init`** | **Define** | Ingest research, author modular PRD in `docs/prd/`, and scaffold baseline. |
+| **`n` / `next`** | **Build & Evolve** | Implement top `[TODO]` task. Auto-runs `e` when plan is empty! |
+| **`n{x}`** (e.g. `n3`) | **Batch Build** | Execute multiple enhancement cycles sequentially in a single turn. |
+| **`e` / `enhance`** | **Plan** | Decompose PRD into exactly 3 new enhancement tasks per module. |
+| **`focus: <direction>`** | **Steer & Drive** | Ephemeral 1-batch focus pivot. Auto-returns to PRD roadmap upon completion. |
+| **`focus: reset`** | **Clear Focus** | Cancel active focus and return immediately to standard PRD roadmap. |
+| **`{x}`** (`r/m/t/f/c/d`) | **Xtend (auto)** | Auto quality gates (`t/f/c/r`) after build, plus manual Milestone (`m`) and Deploy (`d`). |
+| **`/loop <interval>`** | **Periodic Loop** | Loop `n` every `x` minutes (e.g. `/loop 5m`, `/loop 10m max=6`). |
+
+---
+
+## 🚀 3 Ways to Run `n` (Next)
+
+1. **Interactive Manual (`n` / `n{x}`)**:
+   - Type `n` for a single task, or `n3` / `n5` to batch-execute multiple tasks sequentially.
+2. **Periodic Interval Loop (`/loop <interval>`)**:
+   - Loop `n` every `x` minutes with auto-replanning and quality gates:
+   ```text
+   /loop 5m              # Loop every 5 minutes indefinitely
+   /loop 10m max=6       # Loop every 10 minutes, cap at 6 iterations
+   ```
+3. **Autonomous Goal & Cron (`/goal` & `/schedule`)**:
+   - **Continuous Goal**: `/goal Run inex continuous evolution loop until milestone Phase 1 is done`
+   - **Scheduled Cron**: `/schedule CronExpression="0 9 * * *" Prompt="Execute the next enhancement task (trigger 'n')"`
+
+
+---
+
+
+## 🧭 Repository Links
+
+* 📜 **[AGENTS.md](AGENTS.md)**: Authoritative agent instructions & 6-stage lifecycle contract.
+* 🛠️ **[`skills/`](skills/README.md)**: Reusable senior engineering skills (TDD, Debug, Audit, Release).
+* 🏛️ **[`docs/features/core/architecture.md`](docs/features/core/architecture.md)**: Detailed Flywheel architecture & user decisions.
+* 📋 **[`plans/next-enhancements.md`](plans/next-enhancements.md)**: Active enhancement task list.
+* 🎯 **[`plans/focus.md`](plans/focus.md)**: Live user focus directives & priority steering.
+* 🚀 **[`docs/vibe/`](docs/vibe/)**: Guides for Antigravity, Cursor, Copilot, VS Code, OpenHands, Aider.
+
+## 🛠️ Key Governance Rules
+
+* **Live User Focus**: Users can direct or interrupt the AI at any time by recording `[FOCUS]` directives in `plans/focus.md`, which take precedence over standard PRD queues.
+
+* **Research-to-PRD Pipeline**: Suggest starting with deep research tools, saving to `docs/deep-research/`, and authoring PRDs in `docs/prd/` before implementation.
+* **Folder & Sub-Folder Structure**: Organize into domain sub-folders with short, concise file names (e.g., `docs/features/core/architecture.md`, `services/auth/token.ts`) rather than flat, long-named files.
+* **Relative Paths Only**: Strictly use relative paths across all plans, documentation, and code.
+* **High-Signal Output (`i-have-adhd` Standard)**: Zero fluff, no pleasantries, lists capped at 5 items, and clean 2-liner outputs ending with the exact next keystroke (`👉 Next: Type 'n'`).
+* **User Decision Immutability**: All `[DECISION]` tags are authoritative and must never be altered without explicit confirmation.
+
+
+* **Demo / Live Switcher**: Separate mockup data in `data/mockup/` and provide a switcher in the UI.
+* **Cloud vs Local Switcher**: Support both remote cloud APIs and on-premise/self-hosted backends.
+
 
 ---
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+

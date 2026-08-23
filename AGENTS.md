@@ -1,44 +1,88 @@
-# Agent Instructions
+# Agent Instructions & Workflow Contract: The `inex` Method
 
-You must follow these workflow rules strictly to support rapid, iterative enhancements of the platform:
+> **Read-First Directive (`inex`)**: Always read `AGENTS.md`, `plans/focus.md`, `plans/next-enhancements.md`, `docs/prd/`, and relevant skills in `skills/`.
+> **Path Constraint**: Use **relative paths only** across all documentation, plans, code references, and skill executions.
 
-## 1. Trigger "e" or "enhance"
-If the user types "e", "enhance", or requests an enhancement plan:
-- Read `/plans/next-enhancements.md` to understand the current platform structure, history, and active tasks.
-- Overwrite or update the active tasks list inside `/plans/next-enhancements.md`.
-- The plan must cover each main section/module of the application.
-- Inside the tasks list, define **exactly 3 new enhancements per section** with:
-  1. A unique number (e.g., `1.1`, `1.2`, `1.3`).
-  2. A clear, specific description of the functional change.
-  3. A status (initially set to `[TODO]`).
-- Present this plan to the user in your final summary response.
+You must follow the **`inex` (Init, Next, Enhance, Extend `{x}`)** method, adopting the 6-stage senior engineering lifecycle:
 
-## 2. Trigger "n", "next", or "n{x}"
-If the user types "n", "next", "n{x}" (where `{x}` is a positive integer representing the number of enhancements, e.g., "n3"), or requests execution of the next enhancement task(s):
-- Read `/plans/next-enhancements.md` to check the status of tasks.
-- If all enhancement tasks in `/plans/next-enhancements.md` are marked `[DONE]` (or there are no tasks marked `[TODO]`), automatically execute the **Trigger "e" or "enhance"** workflow to generate a new set of tasks.
-- Otherwise, identify and select the most impactful enhancement task(s) currently marked `[TODO]` (evaluating which tasks have the highest strategic value, functional impact, or user experience contribution). If `{x}` is specified, select the top `{x}` most impactful enhancement tasks and execute them sequentially.
-- Implement the selected enhancement task(s) fully in the codebase.
-- Once completed:
-  1. Update the specific task(s) status of `/plans/next-enhancements.md` to `[DONE]`.
-  2. Document the new or updated feature(s) in the `/docs/feature-list.md` file (maintaining an organized list of all platform features under the appropriate section heading).
-- Verify the build integrity of the workspace.
-- In your final response, state which task(s) have been completed and inform the user of the exact menu or navigation path where they can view and interact with the new/updated feature(s).
+---
 
-## 3. File Size & Refactoring Rules
-- **Threshold Rule**: Any new or refactored file exceeding 256 lines of code (LOC) must be refactored and split into multiple smaller, modular, and logical components/files.
+## 1. The 6-Stage Engineering Lifecycle Mapping
 
-## 4. Ad-hoc Feature Requests
-- For direct feature requests not using "n"/"next", implement the feature and document it in `/docs/feature-list.md`.
+| Stage | Trigger | Engineering Focus & Action Directive | Relevant Skill |
+|:---|:---|:---|:---|
+| **1. Define** | **`i` / `init`** | **Plan Mode & Deep Reasoning**: Ingest `docs/deep-research/`, author `docs/prd/`, and scaffold baseline. | `skills/spec-driven-development/` |
+| **2. Plan** | **`e` / `enhance`** | Ingest `plans/focus.md` directives, decomposing into **exactly 3 tasks per module** in `plans/next-enhancements.md` anchored in PRD. | `skills/task-decomposition/` |
+| **3. Build** | **`n` / `next`** | **Autonomous Build**: If no active plan exists, auto-execute `e` first. Select top `{x}` impactful `[TODO]` tasks. Implement with relative paths and domain sub-folders. | `skills/test-driven-development/` |
+| **4. Verify** | **`t` / `f`** | **Non-Negotiable Verification**: Execute test suites (`t`). On failure, auto-triage and repair regressions (`f`). | `skills/debugging-and-recovery/` |
+| **5. Review** | **`c` / `r`** | Refactor files nearing 256 LOC (`c`). Audit PRD compliance, security, and `[DECISION]` adherence (`r`). | `skills/code-audit-and-refactor/` |
+| **6. Ship** | **`d` / `m`** | Execute milestone roadmaps in `plans/roadmaps/` (`m`). Configure Cloud vs Local routing and release changelogs (`d`). | `skills/milestone-and-release/` |
 
-## 5. Mockup Data & Demo/Live Mode
-- Store all mock/sample data in `/data/mockup/` — keep it separate from UI components and styling.
-- Provide a mock API layer that reads from `/data/mockup/` and mirrors the real backend contract.
-- Add a switcher control (icon) in the UI to toggle **Demo** (mock API + mock data) and **Live** (real API + real data).
+---
 
-## 6. Cloud vs Local (On-Premise)
-- Provide a setting to choose **Cloud** or **Local (on-premise)** deployment.
-- **Cloud**: use remote/cloud-hosted API endpoints and services.
-- **Local**: use on-premise/self-hosted API endpoints and services.
-- Persist the selection and route all backend/service calls to the chosen environment.
+## 2. Autonomous Task Execution & `{x}` Quality Gate Chain (on `n` or `focus:`)
+When `n`, `next`, `n{x}`, `focus: <direction>`, or `focus: reset` / `unfocus` is triggered:
+1. **Plan Pre-Flight & Ephemeral Focus Check**:
+   - If user typed `focus: reset` or `unfocus`: Set `plans/focus.md` to `[FOCUS]: none` and trigger `e` to restore standard PRD roadmap.
+   - If user typed `focus: <direction>`: Set `plans/focus.md` to `[FOCUS]: <direction>` and auto-execute `e`.
+   - **Ephemeral Focus Lifecycle**: When `plans/next-enhancements.md` is empty/completed, check `plans/focus.md`. If an active focus was just completed, reset `plans/focus.md` to `[FOCUS]: none` and automatically execute `e` (`skills/task-decomposition/`) to resume the main PRD roadmap.
+
+2. **Task Selection**: Select the top `{x}` (default 1) most impactful `[TODO]` tasks and implement them fully in the codebase.
+3. **Autonomous `{x}` Quality Gate Chain**:
+   - **`t` (Verify)**: Run test suites and verify build integrity. No task is marked `[DONE]` without green verification evidence.
+   - **`f` (Self-Correct)**: If tests fail, perform root-cause analysis and execute targeted repairs until all suites pass.
+   - **`c` (Clean & Modularize)**: Check all modified/new files; if any file exceeds 256 LOC, refactor and split into modular sub-files.
+   - **`r` (Audit & Review)**: Audit against PRD specifications, relative path constraints, and `[DECISION]` compliance.
+4. **Document & Log**: Mark task as `[DONE]` in `plans/next-enhancements.md` and document in `docs/features/<domain>/<topic>.md`. State completed tasks and interactive navigation path for the user.
+
+
+---
+
+## 3. Anti-Rationalization & Red Flag Protocol
+Agents frequently rationalize cutting corners. The following rationalizations are strictly forbidden:
+
+| AI Excuse / Rationalization | Why It's Rejected | Mandatory Corrective Action |
+|:---|:---|:---|
+| *"I'll ignore plans/focus.md and follow my own plan."* | User focus directives are authoritative and override standard sequence. | Read and prioritize `[FOCUS]` items in `plans/focus.md`. |
+| *"There are no tasks in plans/next-enhancements.md, so I cannot execute n."* | The inex contract mandates self-sufficient continuity. Inaction on empty plan breaks autonomy. | Automatically execute `e` (`skills/task-decomposition/`), generate 3 tasks per module from `docs/prd/`, and immediately implement the top `{x}` task(s). |
+| *"The change is small, so testing is unnecessary."* | Verification is non-negotiable. Unverified code introduces silent regressions. | Always run test suites (`t`) and inspect output. |
+| *"This file is 270 lines, but keeping it together is cleaner."* | File bloat degrades reasoning context and maintainability. | Strictly enforce 256 LOC limit (`c`); split into sub-files. |
+| *"I'll use an absolute path for convenience."* | Absolute paths break cross-platform and containerized execution. | Convert to relative paths strictly. |
+| *"I'll improve the design by altering an earlier user choice."* | `[DECISION]` tags are authoritative and immutable. | Preserve `[DECISION]` exactly; ask before deviating. |
+| *"I'll skip PRD alignment since this is an internal refactor."* | Unanchored changes cause product drift. | Anchor every task in `docs/prd/` specifications. |
+
+
+
+
+
+---
+
+## 4. Core Governance Rules
+
+- **Relative Paths Only**: Strictly use relative paths across all plans, documentation, skills, and code.
+- **Hierarchical Nesting**: Group code and documentation into domain sub-folders (e.g. `docs/features/core/architecture.md`, `services/auth/token.ts`) with short, role-focused file names.
+- **256 LOC Limit**: Modularize and split any file exceeding 256 lines of code.
+- **Demo / Live Mode**: Segregate mock data in `data/mockup/` with a mock API layer and an interactive UI toggle.
+- **Cloud vs Local Switcher**: Support both remote cloud APIs and on-premise/self-hosted backends.
+
+---
+
+## 5. Cognitive Focus & High-Signal Output Contract (`i-have-adhd` Standard)
+
+To eliminate cognitive fatigue and maintain laser focus, every agent response must strictly follow:
+1. **Zero Fluff**: No conversational pleasantries, apologies, filler openings, or unsolicited recap essays.
+2. **Ultra-Minimal 2-Liner Output**: Every execution turn (`n`, `i`, `e`, `{x}`) MUST conclude with this exact 2-line format:
+   ```text
+   [DONE] <Task ID/Action>: <Brief summary of built item>. Tests: <green test result>.
+   👉 Next: Type 'n' (or 'focus: <direction>' to steer)
+   ```
+3. **Matter-of-Fact Errors**: Report build/test failures plainly with zero preamble; immediately trigger repair mode (`f`).
+4. **Cap Lists at 5 Items**: Never output overwhelming walls of text; strictly cap lists and bullets to a maximum of 5 items.
+
+
+
+
+
+
+
 
