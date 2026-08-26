@@ -51,11 +51,13 @@ Agents frequently rationalize cutting corners. The following rationalizations ar
 | *"I'll improve the design by altering an earlier user choice."* | `[DECISION]` tags are authoritative and immutable. | Preserve `[DECISION]` exactly; ask before deviating. |
 | *"I'll skip PRD alignment since this is an internal refactor."* | Unanchored changes cause product drift. | Anchor every task in `docs/prd/` specifications. |
 | *"I'll edit submodule files."* | Submodule immutability is absolute. | Keep submodule read-only; isolate all work in host root. |
+| *"I'll put API keys in .env or commit secrets."* | Secret leakage compromises security. | Put general configs in `.env.{ver}`; store all keys/tokens strictly in gitignored `.secrets`. |
 
 ---
 
 ## 4. Core Governance Rules
 
+- **Env & Secrets Segregation**: Store general configs in `.env.{ver}` (e.g. `.env.local`). Store all API keys, tokens, and credentials strictly in gitignored `.secrets`. Provide `.env.example` and `.secrets.example`.
 - **Blocking Issues**: Record unresolved blockers or external dependencies in numbered files (`issues/001-<short-title>.md`).
 - **Submodule Immutability**: Embedded submodule (`autonomous-coding-agents/`) is strictly read-only. See [docs/integrations/submodule.md](docs/integrations/submodule.md).
 - **Relative Paths Only**: Strictly use relative paths across all plans, documentation, skills, and code.
