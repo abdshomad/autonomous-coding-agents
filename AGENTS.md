@@ -50,7 +50,7 @@ Agents frequently rationalize cutting corners. The following rationalizations ar
 | *"I'll use an absolute path for convenience."* | Absolute paths break cross-platform and containerized execution. | Convert to relative paths strictly. |
 | *"I'll improve the design by altering an earlier user choice."* | `[DECISION]` tags are authoritative and immutable. | Preserve `[DECISION]` exactly; ask before deviating. |
 | *"I'll skip PRD alignment since this is an internal refactor."* | Unanchored changes cause product drift. | Anchor every task in `docs/prd/` specifications. |
-| *"I'll edit submodule files."* | Submodule immutability is absolute. | Keep submodule read-only; isolate all work in host root. |
+| *"I'll edit submodule files."* | Submodule immutability is absolute. | Never edit submodule files directly. Save minimal file patches in `{sub-module-repo}-patches/` mirroring relative paths and inject/apply dynamically at runtime. |
 | *"I'll put API keys in .env or commit secrets."* | Secret leakage compromises security. | Put general configs in `.env.{ver}`; store all keys/tokens strictly in gitignored `.secrets`. |
 
 ---
@@ -60,7 +60,7 @@ Agents frequently rationalize cutting corners. The following rationalizations ar
 - **Visual & Automated Testing**: Maintain test scripts in `tests/`. Save step-by-step visual verification evidence to gitignored `screenshots/{test-name}/{step#}-{short-step}.webp`.
 - **Env & Secrets Segregation**: Differentiate environments: use `.env.local` for dev (localhost, mock data, debug) and `.env.production` for prod (cloud APIs, telemetry). Store credentials strictly in gitignored `.secrets` (dev) or inject via CI/CD runtime variables (prod). Provide `.env.example` and `.secrets.example`.
 - **Blocking Issues**: Record unresolved blockers or external dependencies in numbered files (`issues/001-<short-title>.md`).
-- **Submodule Immutability**: Embedded submodule (`autonomous-coding-agents/`) is strictly read-only. See [docs/integrations/submodule.md](docs/integrations/submodule.md).
+- **Submodule Immutability & Patching**: Embedded submodule directories (e.g. `autonomous-coding-agents/`) are strictly read-only. NEVER edit submodule files directly. When changes are required, generate minimal file patches stored in `{sub-module-repo}-patches/` mirroring relative paths (e.g., `{submodule}-patches/path/to/file.patch`) and inject/apply logic at runtime. See [docs/integrations/submodule.md](docs/integrations/submodule.md).
 - **Relative Paths Only**: Strictly use relative paths across all plans, documentation, skills, and code.
 - **Hierarchical Nesting**: Group code and documentation into domain sub-folders (e.g. `docs/features/core/architecture.md`, `services/auth/token.ts`) with short, role-focused file names.
 - **256 LOC Limit**: Modularize and split any file exceeding 256 lines of code.
