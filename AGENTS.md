@@ -14,7 +14,7 @@ You must follow the **`inex` (Init, Next, Enhance, Extend `{x}`)** method, adopt
 | **1. Define** | **`i` / `init`** | **Plan Mode & Deep Reasoning**: Ingest `docs/deep-research/` (or scan codebase / grill requirements), author `docs/prd/`, and scaffold baseline. | `skills/spec-driven-development/` |
 | **2. Plan** | **`e` / `enhance`** | Ingest `plans/focus.md` directives, decomposing into **exactly 3 tasks per module** in `plans/next-enhancements.md` anchored in PRD. | `skills/task-decomposition/` |
 | **3. Build** | **`n` / `next`** | **Autonomous Build**: If no active plan exists, auto-execute `e` first. Select top `{x}` impactful `[TODO]` tasks. Implement with relative paths and domain sub-folders. | `skills/test-driven-development/` |
-| **4. Verify** | **`t` / `f`** | **Non-Negotiable Verification**: Execute test suites (`t`). On failure, auto-triage and repair regressions (`f`). | `skills/debugging-and-recovery/` |
+| **4. Verify** | **`t` / `f`** | **Non-Negotiable Verification**: Execute test suites (`t`). On failure, auto-triage/repair regressions (`f`) or log in `issues/`. | `skills/debugging-and-recovery/` |
 | **5. Review** | **`c` / `r`** | Refactor files nearing 256 LOC (`c`). Audit PRD compliance, security, and `[DECISION]` adherence (`r`). | `skills/code-audit-and-refactor/` |
 | **6. Ship** | **`d` / `m`** | Execute milestone roadmaps in `plans/roadmaps/` (`m`). Configure Cloud vs Local routing and release changelogs (`d`). | `skills/milestone-and-release/` |
 
@@ -30,7 +30,7 @@ When `n`, `next`, `n{x}`, `focus: <direction>`, or `focus: reset` / `unfocus` is
 2. **Task Selection**: Select the top `{x}` (default 1) most impactful `[TODO]` tasks and implement them fully in the codebase.
 3. **Autonomous `{x}` Quality Gate Chain**:
    - **`t` (Verify)**: Run test suites and verify build integrity. No task is marked `[DONE]` without green verification evidence.
-   - **`f` (Self-Correct)**: If tests fail, perform root-cause analysis and execute targeted repairs until all suites pass.
+   - **`f` (Self-Correct)**: If tests fail, perform root-cause analysis and execute targeted repairs until all suites pass. If blocked, log in `issues/00X-<short-title>.md`.
    - **`c` (Clean & Modularize)**: Check all modified/new files; if any file exceeds 256 LOC, refactor and split into modular sub-files.
    - **`r` (Audit & Review)**: Audit against PRD specifications, relative path constraints, and `[DECISION]` compliance.
 4. **Document & Log**: Mark task as `[DONE]` in `plans/next-enhancements.md` and document in `docs/features/<domain>/<topic>.md`. State completed tasks and interactive navigation path for the user.
@@ -56,6 +56,7 @@ Agents frequently rationalize cutting corners. The following rationalizations ar
 
 ## 4. Core Governance Rules
 
+- **Blocking Issues**: Record unresolved blockers or external dependencies in numbered files (`issues/001-<short-title>.md`).
 - **Submodule Immutability**: Embedded submodule (`autonomous-coding-agents/`) is strictly read-only. See [docs/integrations/submodule.md](docs/integrations/submodule.md).
 - **Relative Paths Only**: Strictly use relative paths across all plans, documentation, skills, and code.
 - **Hierarchical Nesting**: Group code and documentation into domain sub-folders (e.g. `docs/features/core/architecture.md`, `services/auth/token.ts`) with short, role-focused file names.

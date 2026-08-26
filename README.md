@@ -61,6 +61,7 @@ flowchart TD
 * 🏛️ **[`docs/features/core/architecture.md`](docs/features/core/architecture.md)**: Detailed Flywheel architecture & user decisions.
 * 📋 **[`plans/next-enhancements.md`](plans/next-enhancements.md)**: Active enhancement task list.
 * 🎯 **[`plans/focus.md`](plans/focus.md)**: Live user focus directives & priority steering.
+* 🐛 **[`issues/`](issues/)**: Numbered blocking issues & root cause reports (`issues/001-<topic>.md`).
 * 🚀 **[`docs/vibe/`](docs/vibe/)**: Guides for Antigravity, Cursor, Copilot, VS Code, OpenHands, Aider.
 
 ## 🛠️ Key Governance Rules

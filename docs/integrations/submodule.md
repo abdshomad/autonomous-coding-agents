@@ -37,11 +37,12 @@ host-repo/
 │   ├── AGENTS.md
 │   └── skills/                        # Shared skills loaded by host agent
 ├── docs/prd/                          # Host project PRD
+├── issues/                            # Host numbered blocking issues (001-<topic>.md)
 ├── plans/                             # Host focus.md & next-enhancements.md
 └── src/                               # Host application code
 ```
 
-- **Scope**: All builds (`n`), replanning (`e`), code, and plans belong strictly in the host repository.
+- **Scope**: All builds (`n`), replanning (`e`), code, plans, and `issues/` belong strictly in the host repository.
 - **Skills**: Resolved from `./autonomous-coding-agents/skills/<skill-name>/SKILL.md`.
 - **Immutability**: The `autonomous-coding-agents/` directory is strictly read-only.
 - **Brownfield / Existing Code**: In host repos with pre-existing code, `i` scans features into `docs/deep-research/codebase-analysis.md` and seeds Task 1 as *Baseline Run & Smoke Test* to verify the app runs green before building new features.

@@ -19,8 +19,11 @@ Provide evidence-based verification of workspace integrity and execute automated
    - Trace stack traces and error messages back to the failure source.
    - Formulate a precise hypothesis without making shotgun edits.
 4. **Targeted Repair**: Modify code to resolve the regression without altering valid specifications or `[DECISION]` tags.
-
 5. **Re-Verify**: Re-run test suites until zero failures remain.
+6. **Log Blocking Issues**: If auto-repair is blocked or requires external/user action (e.g. missing API keys, permissions, third-party outages):
+   - Record issue in `issues/<001>-<short-title>.md` (3-digit zero-padded number).
+   - Use Full Bug Report format: `Summary`, `Environment`, `Steps to Reproduce`, `Expected vs Actual`, `Workaround / Action Required`.
+   - When resolved, update file status to `[RESOLVED]` and append `## Resolution` with fix details.
 
 ## 🛑 Anti-Rationalization Table
 
