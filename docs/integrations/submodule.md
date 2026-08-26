@@ -39,7 +39,7 @@ host-repo/
 ├── docs/prd/                          # Host project PRD
 ├── issues/                            # Host numbered blocking issues (001-<topic>.md)
 ├── plans/                             # Host focus.md & next-enhancements.md
-├── screenshots/                       # Visual step verification (screenshots/{test}/{step}.webp)
+├── screenshots/                       # Visual step screenshots (GITIGNORED)
 ├── src/                               # Host application code
 ├── tests/                             # Automated test scripts (unit/integration/e2e)
 ├── .env.local                         # Development config (dev/debug/mock)

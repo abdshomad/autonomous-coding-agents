@@ -67,7 +67,7 @@ flowchart TD
 
 ## 🛠️ Key Governance Rules
 
-* **Visual & Automated Testing**: Maintain test scripts in `tests/`. Save step-by-step visual verification evidence to `screenshots/{test-name}/{step#}-{short-step}.webp`.
+* **Visual & Automated Testing**: Maintain test scripts in `tests/`. Save step-by-step visual verification evidence to gitignored `screenshots/{test-name}/{step#}-{short-step}.webp`.
 * **Live User Focus**: Users can direct or interrupt the AI at any time by recording `[FOCUS]` directives in `plans/focus.md`, which take precedence over standard PRD queues.
 
 * **Research-to-PRD Pipeline**: Suggest starting with deep research tools, saving to `docs/deep-research/`, and authoring PRDs in `docs/prd/` before implementation.
