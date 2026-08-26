@@ -62,10 +62,12 @@ flowchart TD
 * 📋 **[`plans/next-enhancements.md`](plans/next-enhancements.md)**: Active enhancement task list.
 * 🎯 **[`plans/focus.md`](plans/focus.md)**: Live user focus directives & priority steering.
 * 🐛 **[`issues/`](issues/)**: Numbered blocking issues & root cause reports (`issues/001-<topic>.md`).
+* 🧪 **[`tests/`](tests/)** & 📸 **[`screenshots/`](screenshots/)**: Automated test scripts and visual step screenshots (`screenshots/{test}/{step}.webp`).
 * 🚀 **[`docs/vibe/`](docs/vibe/)**: Guides for Antigravity, Cursor, Copilot, VS Code, OpenHands, Aider.
 
 ## 🛠️ Key Governance Rules
 
+* **Visual & Automated Testing**: Maintain test scripts in `tests/`. Save step-by-step visual verification evidence to `screenshots/{test-name}/{step#}-{short-step}.webp`.
 * **Live User Focus**: Users can direct or interrupt the AI at any time by recording `[FOCUS]` directives in `plans/focus.md`, which take precedence over standard PRD queues.
 
 * **Research-to-PRD Pipeline**: Suggest starting with deep research tools, saving to `docs/deep-research/`, and authoring PRDs in `docs/prd/` before implementation.

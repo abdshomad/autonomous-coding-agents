@@ -11,9 +11,11 @@ trigger: t / f
 Provide evidence-based verification of workspace integrity and execute automated, targeted fixes for runtime or test failures.
 
 ## 📋 Step-by-Step Checklist
-1. **Execute Test Suite (`t`)**: Run build and test scripts (e.g. `npm test`, `pytest`).
+1. **Execute or Author Test Suites (`t`)**:
+   - Run existing or create new test scripts placed in `tests/` (unit, integration, e2e).
+   - For UI and user-flow tests, capture step-by-step visual verification screenshots saved as `screenshots/{test-name}/{step#}-{short-step}.webp`.
 2. **Inspect Output & Logs**:
-   - If tests pass: Capture green verification proof and proceed to Review stage.
+   - If tests pass: Capture green verification proof + screenshot artifacts and proceed to Review stage.
    - If tests fail: Enter Fix mode (`f`).
 3. **Root-Cause Analysis (`f`)**:
    - Trace stack traces and error messages back to the failure source.
