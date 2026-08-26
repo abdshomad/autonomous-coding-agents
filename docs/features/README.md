@@ -1,31 +1,19 @@
-# Feature Documentation & User Decisions
+# Feature Documentation (`docs/features/`)
 
-Minimalist registry of platform capabilities and authoritative user decisions.
+Minimal registry of capabilities and `[DECISION]` records.
 
----
+## Rules
+- **Trigger**: Document only on new user capability, contract change, or `[DECISION]`. Skip refactors/fixes.
+- **Location**: `docs/features/<domain>/<topic>.md` (relative paths).
+- **Limit**: ≤50 LOC per topic.
 
-## 🎯 The Rule (When & How to Document)
-
-- **When to Document**: Only when adding a new user-facing capability, changing an architectural contract, or recording an authoritative user decision (`[DECISION]`). Skip for internal refactors and bug fixes.
-- **Where to Document**: `docs/features/<domain>/<topic>.md` using relative paths only.
-- **Length Constraint**: Strictly ≤50 lines per topic file.
-
----
-
-## 📋 Micro-Bullet Template (3–5 Bullets Max)
-
-Every `docs/features/<domain>/<topic>.md` file must strictly follow this minimalist format:
-
+## Template
 ```markdown
-# <Topic Name>
-
-- **Capability**: <1-line summary of what it does>.
-- **Key Files**: [`path/to/file.ts`](../../path/to/file.ts), [`tests/path/to/test.ts`](../../tests/path/to/test.ts)
-- **Contract / Decision**: `[DECISION]` <authoritative, immutable decision or contract, if any>.
+# <Topic>
+- **Capability**: <1-line summary>.
+- **Key Files**: [`path/to/file.ts`](../../path/to/file.ts)
+- **Contract / Decision**: `[DECISION]` <immutable rule/contract>.
 ```
 
----
-
-## 🗂️ Domain Index
-
-* [core/architecture.md](core/architecture.md): Core platform architecture, engine design, and environment contracts.
+## Index
+* [core/architecture.md](core/architecture.md): Core platform architecture and contracts.

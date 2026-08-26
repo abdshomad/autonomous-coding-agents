@@ -1,31 +1,22 @@
-# Vibe Coding with Cursor Composer
+# Cursor Composer Quick Reference
 
-Cursor Composer is Cursor's advanced agentic interface designed for multi-file code editing, execution of terminal command loops, and self-correction during building and testing.
+Agentic multi-file code editing, terminal loop, and auto-repair.
 
-## 🚀 How to Run the Agent
+## 🚀 Execution
 
-### 1. Enable Agentic Mode
-1. Press `Cmd + I` (macOS) or `Ctrl + I` (Windows/Linux) to open the Cursor Composer dialog.
-2. Toggle the interface mode to **Agent** (instead of Normal) to allow Composer to write code and execute terminal commands autonomously.
+### 1. Launch Agent Mode
+* Press `Cmd + I` (macOS) / `Ctrl + I` (Linux/Windows) -> Toggle mode to **Agent**.
 
-### 2. Context-Aware Prompting & Triggers
-1. Reference the workflow file by typing `@AGENTS.md` to feed the agent instructions into its context window.
-2. Instruct the agent with lifecycle triggers:
-   * **Core Triggers**: `@AGENTS.md trigger init` (i), `trigger next` (n/n3), `trigger enhance` (e)
-   * **Xtend (auto) Triggers (`{x}`)**:
+### 2. Context & Triggers
+* Reference context with `@AGENTS.md`.
+* Prompts:
+  * **Define**: `@AGENTS.md trigger init` (`i`)
+  * **Plan**: `@AGENTS.md trigger enhance` (`e`)
+  * **Build**: `@AGENTS.md trigger next` (`n` / `n3`)
+  * **Xtend (`{x}`)**: `trigger review` (`r`), `trigger milestone` (`m`), `trigger test` (`t`), `trigger fix` (`f`), `trigger clean` (`c`), `trigger deploy` (`d`).
 
-     * `@AGENTS.md trigger review` (r)
-     * `@AGENTS.md trigger milestone` (m)
-     * `@AGENTS.md trigger test` (t)
-     * `@AGENTS.md trigger fix` (f)
-     * `@AGENTS.md trigger clean` (c)
-     * `@AGENTS.md trigger deploy` (d)
-3. The Agent will automatically read `AGENTS.md` and `plans/next-enhancements.md`, propose a plan, modify the required files (observing relative paths, folder nesting, and the 256 LOC limit), run test commands, and resolve errors autonomously until the task is complete.
-
-
-### 3. Plan Mode & Reasoning Model Configuration
-For Deep Research (`docs/deep-research/`) and PRD authoring (`docs/prd/`):
-* Select the highest-tier reasoning model (e.g. `Claude 3.7 Sonnet (Thinking)`, `o3-mini (High)`, or `Gemini 2.5 Pro`).
-* Engage Composer in **Plan Mode** to conduct research and draft PRD sections before switching to code implementation loops.
+### 3. Reasoning & Plan Mode
+* Use highest reasoning model (`Claude 3.7 Sonnet (Thinking)`, `o3-mini (High)`) in **Plan Mode** for research (`docs/deep-research/`) and PRD (`docs/prd/`).
+* Composer implements code, enforces ≤256 LOC, executes tests, repairs regressions autonomously.
 
 

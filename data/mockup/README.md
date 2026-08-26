@@ -1,9 +1,8 @@
-# Mockup Data Directory (`data/mockup/`)
+# Mockup Data (`data/mockup/`)
 
-This directory contains static mock data sets, fixture JSON files, and mock API response contracts.
+Static mock datasets, JSON fixtures, and mock API contracts.
 
-## 📁 Organization Rules
-
-1. **Separation of Concerns**: All mock and sample data must live in this directory, decoupled from UI components, business logic, and styling.
-2. **Mock API Layer**: The application must provide a mock API layer that consumes data from `data/mockup/` and mirrors the real backend API responses.
-3. **Demo/Live Toggle**: The application must include a switcher control allowing developers and users to toggle between **Demo Mode** (consuming mock data from this directory) and **Live Mode** (interacting with real endpoints).
+## Rules
+1. **Isolation**: Decouple mock payloads from business logic and UI code.
+2. **Mock API Layer**: Consume data from `data/mockup/` matching live API shapes.
+3. **Demo/Live Toggle**: UI toggle for Demo Mode (mock) vs Live Mode (real endpoints).

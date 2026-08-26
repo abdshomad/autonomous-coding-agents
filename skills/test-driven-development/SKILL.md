@@ -1,40 +1,26 @@
 ---
 name: test-driven-development
-description: Implement enhancement tasks using test-first discipline, relative paths, and modular directory structures.
+description: Implement tasks via TDD, domain nesting, and relative paths.
 stage: 3-build
 trigger: n
 ---
 
-# Test-Driven Development (Build Stage)
+# Test-Driven Development (`n`)
 
-## 🎯 Purpose
-Execute tasks from `plans/next-enhancements.md` with senior engineering rigor, ensuring clean code, domain folder nesting, and continuous test coverage.
+## Directives
+1. **Pre-Flight**: If `plans/next-enhancements.md` empty/done, auto-run `e` (`skills/task-decomposition/`).
+2. **Select**: Take top `{x}` `[TODO]` task.
+3. **TDD**: Write tests in `tests/` alongside feature implementation.
+4. **Code**: Modular code in domain sub-folders; ≤256 LOC; relative paths only.
+5. **Submodules**: Zero mutations. Use `patches/<submodule>/` and `scripts/`.
+6. **Quality Gate**: Run `{x}` chain (`t → f → c → r`).
 
-## 📋 Step-by-Step Checklist
-1. **Plan Pre-Flight Check**:
-   - Inspect `plans/next-enhancements.md`.
-   - If the file is missing, empty, or all tasks are marked `[DONE]`, **immediately execute `skills/task-decomposition/` (`e`)** to generate 3 new `[TODO]` tasks per module anchored in `docs/prd/`.
-2. **Task Selection**: Select the most impactful `[TODO]` task from `plans/next-enhancements.md`.
-3. **Write Failing Test**: Author tests representing the new capability before or alongside feature code.
-4. **Implement Feature**:
-   - Write clean, modular code placed in domain sub-folders (e.g. `services/auth/token.ts`).
-   - Use **relative paths only** and strictly avoid modifying git submodules.
-   - Place any necessary submodule alterations in parent `patches/<submodule-name>/` or runner scripts in `scripts/`.
-   - Keep files well below 256 lines of code.
-5. **Trigger Autonomous `{x}` Quality Chain**: Automatically proceed to Verify (`t`/`f`), Review (`c`/`r`), and log features in `docs/features/<domain>/<topic>.md`.
+| Violation | Mandatory Action |
+|:---|:---|
+| Empty plan -> halt | Auto-trigger `e`, generate 3 tasks/module, execute top task. |
+| Skip tests | Author test suites before completing task. |
+| Monolithic file | Modularize into domain sub-folders (≤256 LOC). |
+| Mutate submodule | 100% read-only; use `patches/` and `scripts/`. |
 
-## 🛑 Anti-Rationalization Table
-
-| Excuse | Reality | Action |
-|:---|:---|:---|
-| *"There are no tasks in plans/next-enhancements.md, so I cannot run n."* | The inex contract mandates self-sufficient continuity. Inaction on empty plan breaks autonomy. | Automatically invoke `skills/task-decomposition/` (`e`), populate the plan, and execute task. |
-| *"I'll write tests after I finish writing the entire codebase."* | Untested code introduces subtle regressions and bad architecture. | Write tests first or incrementally with each unit. |
-| *"I'll put everything in one long file for now."* | Monolithic files violate the 256 LOC rule and degrade context. | Create domain sub-folders immediately. |
-| *"I'll use an absolute path because it's faster."* | Hardcoded absolute paths break portability. | Always use relative paths. |
-| *"I need to edit a submodule file to make tests pass."* | Submodule mutation is strictly prohibited. | Write a runtime wrapper, patch overlay in `patches/<submodule-name>/`, or root script in `scripts/`. |
-
-
-## ✅ Verification Gate
-- [ ] Task fully implemented in codebase.
-- [ ] All submodules remain 100% clean and unmodified.
-- [ ] Autonomous `{x}` quality chain passes all gates.
+## Verification
+- [ ] Task implemented; submodules 100% clean; quality chain (`t/f/c/r`) passed.

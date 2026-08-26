@@ -1,91 +1,62 @@
 # Autonomous Coding Agents: The `inex` Method
 
-> **Build and evolve any software application indefinitely with just two keystrokes: type `i`, then type `n`, `n`, `n`, `n`... ♾️**
-> 
-> 🎯 **Ephemeral Steering**: Type `focus: <direction>` (or edit [`plans/focus.md`](plans/focus.md)) to pivot for 1 batch. The agent auto-returns to the PRD roadmap once done. Type `focus: reset` or `unfocus` to cancel anytime.
+> **Infinite App Evolution**: Type `i`, then `n`, `n`, `n`... ♾️
+> **Steering**: `focus: <dir>` (or edit [`plans/focus.md`](plans/focus.md)) to pivot 1 batch. Agent auto-resumes PRD roadmap. `focus: reset` cancels.
 
 ---
 
-## ⚡ The Infinite Evolution Flywheel (`i` → `n, n, n... ♾️`)
+## ⚡ Infinite Evolution Flywheel (`i` → `n, n, n... ♾️`)
 
 ```mermaid
 flowchart TD
-    I["1. Type 'i'<br/>Deep Research → PRD → Scaffolding & Initial Plan"] --> N["2. Type 'n'<br/>Build Task 1 + Auto Quality Chain (t → f → c → r)"]
+    I["1. Type 'i'<br/>Deep Research → PRD → Baseline Scaffolding"] --> N["2. Type 'n'<br/>Build Task 1 + Quality Chain (t → f → c → r)"]
     N --> N2["3. Type 'n', 'n'... ♾️<br/>Build Remaining Tasks"]
-    N2 --> AutoE{"Plan Depleted?"}
+    N2 --> AutoE{"Plan Empty?"}
     AutoE -- "Yes" --> E["Auto-trigger 'e'<br/>Decompose next 3 PRD enhancements"]
     E --> N
 ```
-
 
 ---
 
 ## ⌨️ Command Cheat-Sheet
 
-| Command | Action | Description |
+| Command | Action | Directive |
 |:---|:---|:---|
-| **`i` / `init`** | **Define** | Ingest research, scan codebase, or grill requirements into `docs/deep-research/`, then author PRD in `docs/prd/`. |
-| **`n` / `next`** | **Build & Evolve** | Implement top `[TODO]` task. Auto-runs `e` when plan is empty! |
-| **`n{x}`** (e.g. `n3`) | **Batch Build** | Execute multiple enhancement cycles sequentially in a single turn. |
-| **`e` / `enhance`** | **Plan** | Decompose PRD into exactly 3 new enhancement tasks per module. |
-| **`focus: <direction>`** | **Steer & Drive** | Ephemeral 1-batch focus pivot. Auto-returns to PRD roadmap upon completion. |
-| **`focus: reset`** | **Clear Focus** | Cancel active focus and return immediately to standard PRD roadmap. |
-| **`{x}`** (`r/m/t/f/c/d`) | **Xtend (auto)** | Auto quality gates (`t/f/c/r`) after build, plus manual Milestone (`m`) and Deploy (`d`). |
-| **`/loop <interval>`** | **Periodic Loop** | Loop `n` every `x` minutes (e.g. `/loop 5m`, `/loop 10m max=6`). |
+| **`i` / `init`** | **Define** | Ingest research/grill into `docs/deep-research/`; author PRD in `docs/prd/`. |
+| **`n` / `next`** | **Build & Evolve** | Implement top `[TODO]`. Auto-runs `e` when plan empty. |
+| **`n{x}`** (e.g. `n3`) | **Batch Build** | Run `{x}` enhancement cycles sequentially in 1 turn. |
+| **`e` / `enhance`** | **Plan** | Decompose PRD into 3 tasks/module in `plans/next-enhancements.md`. |
+| **`focus: <dir>`** | **Steer** | 1-batch focus override. Auto-returns to PRD roadmap when done. |
+| **`focus: reset`** | **Clear** | Cancel focus; restore PRD roadmap. |
+| **`{x}`** (`r/m/t/f/c/d`) | **Xtend (auto)** | Auto gates (`t/f/c/r`) after build + manual Milestone (`m`) & Deploy (`d`). |
+| **`/loop <interval>`** | **Periodic Loop** | Loop `n` every `x` min (`/loop 5m`, `/loop 10m max=6`). |
 
 ---
 
-## 🚀 3 Ways to Run `n` (Next)
+## 🚀 Execution Modes
 
-1. **Interactive Manual (`n` / `n{x}`)**:
-   - Type `n` for a single task, or `n3` / `n5` to batch-execute multiple tasks sequentially.
-2. **Periodic Interval Loop (`/loop <interval>`)**:
-   - Loop `n` every `x` minutes with auto-replanning and quality gates:
-   ```text
-   /loop 5m              # Loop every 5 minutes indefinitely
-   /loop 10m max=6       # Loop every 10 minutes, cap at 6 iterations
-   ```
-3. **Autonomous Goal & Cron (`/goal` & `/schedule`)**:
-   - **Continuous Goal**: `/goal Run inex continuous evolution loop until milestone Phase 1 is done`
-   - **Scheduled Cron**: `/schedule CronExpression="0 9 * * *" Prompt="Execute the next enhancement task (trigger 'n')"`
-
+* **Interactive Manual**: `n` (single task) or `n3` / `n5` (batch).
+* **Interval Loop**: `/loop 5m` (infinite) or `/loop 10m max=6` (capped).
+* **Goal & Schedule**: `/goal Run inex continuous loop until Phase 1 done` / `/schedule CronExpression="0 9 * * *" Prompt="trigger 'n'"`
 
 ---
 
+## 🧭 Repository Links & Governance
 
-## 🧭 Repository Links
-
-* 📜 **[AGENTS.md](AGENTS.md)**: Authoritative agent instructions & 6-stage lifecycle contract.
-* 📦 **[`docs/integrations/submodule.md`](docs/integrations/submodule.md)**: Git Submodule Integration & Host `AGENTS.md` template.
-* 🛠️ **[`skills/`](skills/README.md)**: Reusable senior engineering skills (TDD, Debug, Audit, Release).
-* 🏛️ **[`docs/features/core/architecture.md`](docs/features/core/architecture.md)**: Detailed Flywheel architecture & user decisions.
-* 📋 **[`plans/next-enhancements.md`](plans/next-enhancements.md)**: Active enhancement task list.
-* 🎯 **[`plans/focus.md`](plans/focus.md)**: Live user focus directives & priority steering.
-* 🐛 **[`issues/`](issues/)**: Numbered blocking issues & root cause reports (`issues/001-<topic>.md`).
-* 🧪 **[`tests/`](tests/)** & 📸 **[`screenshots/`](screenshots/)**: Automated test scripts and visual step screenshots (`screenshots/{test}/{step}.webp`).
+* 📜 **[AGENTS.md](AGENTS.md)**: Agent instructions, submodule rules & 6-stage lifecycle contract.
+* 📦 **[`docs/integrations/submodule.md`](docs/integrations/submodule.md)**: Submodule integration & host `AGENTS.md` template.
+* 🛠️ **[`skills/`](skills/README.md)**: Engineering skills (TDD, Debug, Audit, Release).
+* 🏛️ **[`docs/features/core/architecture.md`](docs/features/core/architecture.md)**: Architecture & decisions.
+* 📋 **[`plans/next-enhancements.md`](plans/next-enhancements.md)**: Active enhancement tasks.
+* 🎯 **[`plans/focus.md`](plans/focus.md)**: Priority steering.
+* 🐛 **[`issues/`](issues/)**: Blockers (`issues/001-<topic>.md`).
+* 🧪 **[`tests/`](tests/)** & 📸 **[`screenshots/`](screenshots/)**: Test suites & step screenshots.
 * 🚀 **[`docs/vibe/`](docs/vibe/)**: Guides for Antigravity, Cursor, Copilot, VS Code, OpenHands, Aider.
-
-## 🛠️ Key Governance Rules
-
-* **Visual & Automated Testing**: Maintain test scripts in `tests/`. Save step-by-step visual verification evidence to gitignored `screenshots/{test-name}/{step#}-{short-step}.webp`.
-* **Live User Focus**: Users can direct or interrupt the AI at any time by recording `[FOCUS]` directives in `plans/focus.md`, which take precedence over standard PRD queues.
-
-* **Research-to-PRD Pipeline**: Suggest starting with deep research tools, saving to `docs/deep-research/`, and authoring PRDs in `docs/prd/` before implementation.
-* **Folder & Sub-Folder Structure**: Organize into domain sub-folders with short, concise file names (e.g., `docs/features/core/architecture.md`, `services/auth/token.ts`) rather than flat, long-named files.
-* **Relative Paths Only**: Strictly use relative paths across all plans, documentation, and code.
-* **High-Signal Output (`i-have-adhd` Standard)**: Zero fluff, no pleasantries, lists capped at 5 items, and clean 2-liner outputs ending with the exact next keystroke (`👉 Next: Type 'n'`).
-* **User Decision Immutability**: All `[DECISION]` tags are authoritative and must never be altered without explicit confirmation.
-
-
-* **Demo / Live Switcher**: Separate mockup data in `data/mockup/` and provide a switcher in the UI.
-* **Cloud vs Local Switcher**: Support both remote cloud APIs and on-premise/self-hosted backends.
-* **Env & Secrets Segregation**: Differentiate environments with `.env.local` (dev/mock/debug) and `.env.production` (prod/cloud APIs). Store credentials in gitignored `.secrets` (dev) or inject via CI/CD secrets (prod). Provide `.env.example` and `.secrets.example`.
-
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT - see [LICENSE](LICENSE).
 
 

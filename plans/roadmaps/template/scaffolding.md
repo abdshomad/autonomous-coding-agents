@@ -1,14 +1,11 @@
-# Phase 1: Environment Scaffolding & Setup
+# Phase 1: Environment Scaffolding
 
-## 🎯 Goal
-Bootstrap the core workspace, configuration, tooling, and verification harness.
+## Tasks
+- [ ] Initialize package config (`package.json`, `pyproject.toml`).
+- [ ] Set linter rules (≤256 LOC, folder nesting).
+- [ ] Setup test runner (`npm test`, `pytest`).
+- [ ] Record decisions in `docs/features/core/architecture.md`.
 
-## 📋 Task Checklist
-- [ ] Initialize package/project configuration (e.g. `package.json`, `pyproject.toml`, etc.).
-- [ ] Establish strict linter rules including the 256 LOC file size limit and hierarchical folder nesting.
-- [ ] Configure test runner scripts (e.g. `npm test`, `pytest`, etc.).
-- [ ] Create initial `docs/features/core/architecture.md` and log baseline decisions.
-
-## ✅ Verification Criteria
-- [ ] Build / test command executes cleanly with zero failures.
-- [ ] Relative paths verified across all imported modules and references.
+## Verification
+- [ ] Build & tests pass green.
+- [ ] Relative paths verified.

@@ -1,23 +1,18 @@
-# Vibe Coding with Cursor IDE
+# Cursor IDE Quick Reference
 
-Cursor IDE provides a highly interactive AI workspace. Rather than running a fully autonomous multi-file loop, the IDE variant focuses on interactive AI sidebar chats and inline code edits.
+Interactive chat sidebar and inline AI edits.
 
-## 🚀 How to Use Interactive AI Features
+## 🚀 Workflows
 
-### 1. Sidebar Workspace Chat
-Use the AI Chat panel to ask the assistant to plan changes, write code snippets, or resolve bugs:
-1. Open the Chat sidebar using `Cmd + L` (macOS) or `Ctrl + L` (Windows/Linux).
-2. Reference the guidelines file by typing `@AGENTS.md` and select it from the dropdown.
-3. Prompt the agent with triggers:
-   * `"Review @AGENTS.md in Plan Mode with Claude 3.7 Sonnet (Thinking) / o3-mini: ingest docs/deep-research/, author docs/prd/, and bootstrap project structure ('i')"`
-   * `"Review @AGENTS.md and draft next enhancement plan in plans/next-enhancements.md ('e')"`
-   * `"Execute next enhancement task ('n') and document it in docs/features/"`
-   * `"Execute next milestone phase ('m') in plans/roadmaps/template/"`
+### 1. Sidebar Chat (`Cmd/Ctrl + L`)
+* Tag `@AGENTS.md`.
+* Prompts:
+  * `"Review @AGENTS.md in Plan Mode: ingest docs/deep-research/, author docs/prd/, bootstrap ('i')"`
+  * `"Review @AGENTS.md, plan next enhancements in plans/next-enhancements.md ('e')"`
+  * `"Execute next enhancement ('n'), update docs/features/"`
+  * `"Execute next milestone phase ('m') in plans/roadmaps/"`
 
-4. The assistant will write a plan and display code changes that you can apply with a single click.
-
-### 2. Inline Code Edits
-Modify code snippets directly inside your open files:
-1. Highlight the code section you want to enhance or modify.
-2. Press `Cmd + K` (macOS) or `Ctrl + K` (Windows/Linux) to open the inline prompt bar.
-3. Type your instructions and press Enter. The AI will show a diff showing the edits, ensuring that files stay below 256 LOC.
+### 2. Inline Edits (`Cmd/Ctrl + K`)
+* Highlight code -> Press `Cmd/Ctrl + K`.
+* Instruction: `"Refactor module into domain sub-files under 256 LOC per AGENTS.md"`.
+* Accept inline diff.
