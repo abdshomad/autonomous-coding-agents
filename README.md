@@ -77,7 +77,7 @@ flowchart TD
 
 * **Demo / Live Switcher**: Separate mockup data in `data/mockup/` and provide a switcher in the UI.
 * **Cloud vs Local Switcher**: Support both remote cloud APIs and on-premise/self-hosted backends.
-* **Env & Secrets Segregation**: Store general configs in `.env.{ver}` (e.g. `.env.local`). Store all API keys, tokens, and credentials in gitignored `.secrets`. Provide `.env.example` and `.secrets.example`.
+* **Env & Secrets Segregation**: Differentiate environments with `.env.local` (dev/mock/debug) and `.env.production` (prod/cloud APIs). Store credentials in gitignored `.secrets` (dev) or inject via CI/CD secrets (prod). Provide `.env.example` and `.secrets.example`.
 
 
 ---

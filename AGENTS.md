@@ -57,7 +57,7 @@ Agents frequently rationalize cutting corners. The following rationalizations ar
 
 ## 4. Core Governance Rules
 
-- **Env & Secrets Segregation**: Store general configs in `.env.{ver}` (e.g. `.env.local`). Store all API keys, tokens, and credentials strictly in gitignored `.secrets`. Provide `.env.example` and `.secrets.example`.
+- **Env & Secrets Segregation**: Differentiate environments: use `.env.local` for dev (localhost, mock data, debug) and `.env.production` for prod (cloud APIs, telemetry). Store credentials strictly in gitignored `.secrets` (dev) or inject via CI/CD runtime variables (prod). Provide `.env.example` and `.secrets.example`.
 - **Blocking Issues**: Record unresolved blockers or external dependencies in numbered files (`issues/001-<short-title>.md`).
 - **Submodule Immutability**: Embedded submodule (`autonomous-coding-agents/`) is strictly read-only. See [docs/integrations/submodule.md](docs/integrations/submodule.md).
 - **Relative Paths Only**: Strictly use relative paths across all plans, documentation, skills, and code.
