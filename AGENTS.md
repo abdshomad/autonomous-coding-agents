@@ -3,6 +3,13 @@
 > **Read-First Directive (`inex`)**: Always read `AGENTS.md`, `plans/focus.md`, `plans/next-enhancements.md`, `docs/prd/`, and relevant skills in `skills/`.
 > **Path Constraint**: Use **relative paths only** across all documentation, plans, code references, and skill executions.
 
+> [!CAUTION]
+> ### 🛑 ZERO SUBMODULE MUTATION RULE (NON-NEGOTIABLE)
+> **All Git Submodules (current and future, registered in `.gitmodules` or embedded in the workspace) are 100% READ-ONLY.**
+> - **NEVER** use `write_to_file`, `replace_file_content`, or shell commands to create, modify, or delete files inside any git submodule.
+> - **ALL** customizations, wrappers, Cordis overlay patches (`patches/<submodule-name>/`), runner scripts (`scripts/`), proxy middleware, and configs must reside exclusively in the **parent workspace root**.
+> - If submodule behavior must change, use **parent overlay patches (`patches/<submodule-name>/`)**, **wrapper scripts (`scripts/`)**, or dynamic injection at runtime from the root. Submodule `git status` MUST always remain `clean`.
+
 You must follow the **`inex` (Init, Next, Enhance, Extend `{x}`)** method, adopting the 6-stage senior engineering lifecycle:
 
 ---
@@ -33,7 +40,7 @@ When `n`, `next`, `n{x}`, `focus: <direction>`, or `focus: reset` / `unfocus` is
    - **`f` (Self-Correct)**: If tests fail, perform root-cause analysis and execute targeted repairs until all suites pass. If blocked, log in `issues/00X-<short-title>.md`.
    - **`c` (Clean & Modularize)**: Check all modified/new files; if any file exceeds 256 LOC, refactor and split into modular sub-files.
    - **`r` (Audit & Review)**: Audit against PRD specifications, relative path constraints, and `[DECISION]` compliance.
-4. **Document & Log**: Mark task as `[DONE]` in `plans/next-enhancements.md` and document in `docs/features/<domain>/<topic>.md`. State completed tasks and interactive navigation path for the user.
+4. **Document & Log**: Mark task as `[DONE]` in `plans/next-enhancements.md`. If the task introduces new capabilities, architectural contracts, or `[DECISION]` records, update `docs/features/<domain>/<topic>.md` (micro-bullets, ≤50 lines; skip for internal refactors/bug fixes). State completed tasks and next keystroke.
 
 
 ---
@@ -50,7 +57,7 @@ Agents frequently rationalize cutting corners. The following rationalizations ar
 | *"I'll use an absolute path for convenience."* | Absolute paths break cross-platform and containerized execution. | Convert to relative paths strictly. |
 | *"I'll improve the design by altering an earlier user choice."* | `[DECISION]` tags are authoritative and immutable. | Preserve `[DECISION]` exactly; ask before deviating. |
 | *"I'll skip PRD alignment since this is an internal refactor."* | Unanchored changes cause product drift. | Anchor every task in `docs/prd/` specifications. |
-| *"I'll edit submodule files."* | Submodule immutability is absolute. | Never edit submodule files directly. Save minimal file patches in `{sub-module-repo}-patches/` mirroring relative paths and inject/apply dynamically at runtime. |
+| *"I'll edit submodule files."* | Submodule immutability is absolute. | Never edit submodule files directly using file edit tools or shell commands. Save minimal file patches in parent `patches/<submodule-name>/` mirroring relative paths, write wrapper scripts in `scripts/`, and inject/apply dynamically at runtime. Submodule `git status` must remain 100% clean. |
 | *"I'll put API keys in .env or commit secrets."* | Secret leakage compromises security. | Put general configs in `.env.{ver}`; store all keys/tokens strictly in gitignored `.secrets`. |
 
 ---
@@ -60,9 +67,10 @@ Agents frequently rationalize cutting corners. The following rationalizations ar
 - **Visual & Automated Testing**: Maintain test scripts in `tests/`. Save step-by-step visual verification evidence to gitignored `screenshots/{test-name}/{step#}-{short-step}.webp`.
 - **Env & Secrets Segregation**: Differentiate environments: use `.env.local` for dev (localhost, mock data, debug) and `.env.production` for prod (cloud APIs, telemetry). Store credentials strictly in gitignored `.secrets` (dev) or inject via CI/CD runtime variables (prod). Provide `.env.example` and `.secrets.example`.
 - **Blocking Issues**: Record unresolved blockers or external dependencies in numbered files (`issues/001-<short-title>.md`).
-- **Submodule Immutability & Patching**: Embedded submodule directories (e.g. `autonomous-coding-agents/`) are strictly read-only. NEVER edit submodule files directly. When changes are required, generate minimal file patches stored in `{sub-module-repo}-patches/` mirroring relative paths (e.g., `{submodule}-patches/path/to/file.patch`) and inject/apply logic at runtime. See [docs/integrations/submodule.md](docs/integrations/submodule.md).
+- **Submodule Immutability & Patching**: All Git submodules (current and future, registered in `.gitmodules` or embedded in the workspace) are strictly 100% read-only. NEVER use `write_to_file`, `replace_file_content`, or mutating shell commands inside any submodule directory. When behavior changes are required, generate minimal file patches stored in `patches/<submodule-name>/` mirroring relative paths (e.g., `patches/autonomous-coding-agents/path/to/file.patch`), create root runner scripts in `scripts/`, or use dynamic runtime injection. Submodule `git status` MUST always remain `clean`. See [docs/integrations/submodule.md](docs/integrations/submodule.md).
 - **Relative Paths Only**: Strictly use relative paths across all plans, documentation, skills, and code.
 - **Hierarchical Nesting**: Group code and documentation into domain sub-folders (e.g. `docs/features/core/architecture.md`, `services/auth/token.ts`) with short, role-focused file names.
+- **Minimalist Feature Registry (`docs/features/`)**: Document only when adding new capabilities, contract shifts, or `[DECISION]` tags. Follow the 3–5 micro-bullet template (Capability, Key Files, Decision) capped at ≤50 lines per topic file. See [docs/features/README.md](docs/features/README.md).
 - **256 LOC Limit**: Modularize and split any file exceeding 256 lines of code.
 - **Demo / Live Mode**: Segregate mock data in `data/mockup/` with a mock API layer and an interactive UI toggle.
 - **Cloud vs Local Switcher**: Support both remote cloud APIs and on-premise/self-hosted backends.

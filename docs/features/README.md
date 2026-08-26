@@ -1,13 +1,30 @@
-# Features & User Decisions Index
+# Feature Documentation & User Decisions
 
-This directory contains modular domain documentation of platform features and authoritative architectural decisions made by users.
+Minimalist registry of platform capabilities and authoritative user decisions.
 
-## 📖 Directory Structure Guidelines
+---
 
-1. **Domain Sub-Folders**: Group features into logical sub-folders by domain (e.g., `core/`, `ui/`, `services/`, `data/`).
-2. **Concise File Names**: Keep file names short, specific, and focused (e.g., `architecture.md`, `controls.md`, `decisions.md`).
-3. **256 LOC Limit**: Ensure individual feature list files never exceed 256 lines of code. Split into additional sub-files as the module expands.
-4. **User Decisions (`[DECISION]`)**: Always tag permanent user choices with `[DECISION]` to ensure agents never reverse them.
+## 🎯 The Rule (When & How to Document)
+
+- **When to Document**: Only when adding a new user-facing capability, changing an architectural contract, or recording an authoritative user decision (`[DECISION]`). Skip for internal refactors and bug fixes.
+- **Where to Document**: `docs/features/<domain>/<topic>.md` using relative paths only.
+- **Length Constraint**: Strictly ≤50 lines per topic file.
+
+---
+
+## 📋 Micro-Bullet Template (3–5 Bullets Max)
+
+Every `docs/features/<domain>/<topic>.md` file must strictly follow this minimalist format:
+
+```markdown
+# <Topic Name>
+
+- **Capability**: <1-line summary of what it does>.
+- **Key Files**: [`path/to/file.ts`](../../path/to/file.ts), [`tests/path/to/test.ts`](../../tests/path/to/test.ts)
+- **Contract / Decision**: `[DECISION]` <authoritative, immutable decision or contract, if any>.
+```
+
+---
 
 ## 🗂️ Domain Index
 

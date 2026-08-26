@@ -18,7 +18,8 @@ Execute tasks from `plans/next-enhancements.md` with senior engineering rigor, e
 3. **Write Failing Test**: Author tests representing the new capability before or alongside feature code.
 4. **Implement Feature**:
    - Write clean, modular code placed in domain sub-folders (e.g. `services/auth/token.ts`).
-   - Use **relative paths only**.
+   - Use **relative paths only** and strictly avoid modifying git submodules.
+   - Place any necessary submodule alterations in parent `patches/<submodule-name>/` or runner scripts in `scripts/`.
    - Keep files well below 256 lines of code.
 5. **Trigger Autonomous `{x}` Quality Chain**: Automatically proceed to Verify (`t`/`f`), Review (`c`/`r`), and log features in `docs/features/<domain>/<topic>.md`.
 
@@ -30,8 +31,10 @@ Execute tasks from `plans/next-enhancements.md` with senior engineering rigor, e
 | *"I'll write tests after I finish writing the entire codebase."* | Untested code introduces subtle regressions and bad architecture. | Write tests first or incrementally with each unit. |
 | *"I'll put everything in one long file for now."* | Monolithic files violate the 256 LOC rule and degrade context. | Create domain sub-folders immediately. |
 | *"I'll use an absolute path because it's faster."* | Hardcoded absolute paths break portability. | Always use relative paths. |
+| *"I need to edit a submodule file to make tests pass."* | Submodule mutation is strictly prohibited. | Write a runtime wrapper, patch overlay in `patches/<submodule-name>/`, or root script in `scripts/`. |
 
 
 ## ✅ Verification Gate
 - [ ] Task fully implemented in codebase.
+- [ ] All submodules remain 100% clean and unmodified.
 - [ ] Autonomous `{x}` quality chain passes all gates.
