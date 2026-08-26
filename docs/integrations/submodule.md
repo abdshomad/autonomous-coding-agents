@@ -44,4 +44,4 @@ host-repo/
 - **Scope**: All builds (`n`), replanning (`e`), code, and plans belong strictly in the host repository.
 - **Skills**: Resolved from `./autonomous-coding-agents/skills/<skill-name>/SKILL.md`.
 - **Immutability**: The `autonomous-coding-agents/` directory is strictly read-only.
-- **Brownfield / Existing Code**: In host repos with pre-existing code, `i` scans existing features into `docs/deep-research/codebase-analysis.md` to baseline the PRD.
+- **Brownfield / Existing Code**: In host repos with pre-existing code, `i` scans features into `docs/deep-research/codebase-analysis.md` and seeds Task 1 as *Baseline Run & Smoke Test* to verify the app runs green before building new features.

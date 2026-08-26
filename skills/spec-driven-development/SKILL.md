@@ -20,7 +20,9 @@ Turn ideas and technical research from `docs/deep-research/` into a concrete, un
    - If estimated PRD < 256 lines: create a single `docs/prd/prd.md`.
    - If complex / multi-domain: scaffold `docs/prd/<domain>/<topic>.md` with clear domain boundaries.
 4. **Author PRD Specifications**: Capture baseline capabilities (if brownfield) or MVP specs (if greenfield), executive summary, contracts, and acceptance criteria.
-5. **Seed Next Enhancements**: Populate `plans/next-enhancements.md` with the top 3 high-impact tasks.
+5. **Seed Next Enhancements**: Populate `plans/next-enhancements.md` with exactly 3 initial tasks:
+   - **Brownfield**: Task 1 MUST be *Baseline Run & Smoke Test* (install deps, configure env, build, and run existing app until success, auto-fixing issues via `f` before starting new features). Tasks 2-3 are extension features.
+   - **Greenfield**: Task 1 scaffolds baseline, Tasks 2-3 implement core MVP modules.
 
 ## 🛑 Anti-Rationalization Table
 
