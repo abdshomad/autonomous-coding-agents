@@ -12,12 +12,15 @@ Turn ideas and technical research from `docs/deep-research/` into a concrete, un
 
 ## 📋 Step-by-Step Checklist
 1. **Switch AI Mode**: Switch to **Plan Mode** with the **highest-tier smart reasoning model** enabled.
-2. **Ingest Deep Research**: Inspect `docs/deep-research/` for user-provided or agent-generated feasibility benchmarks.
+2. **Context Detection & Deep Research Ingestion**:
+   - **Brownfield (Existing Code)**: Scan repository architecture, endpoints, data models, and tests. Generate audit in `docs/deep-research/codebase-analysis.md`.
+   - **Greenfield (Empty Repo, No Research)**: Conduct a **4-Pillar Batch Grilling Interview** (Vision/Users, MVP Features, Tech Stack, Cloud vs Local) presenting 3-4 numbered questions with indexed choices (`1a)`, `1b)`, `2a)`...). Option `a` is always `(Recommended)`, enabling user shorthand replies (`1a, 2a, 3b, 4c` or `all defaults`). Persist answers in `docs/deep-research/requirements-interview.md`.
+   - **Greenfield (Existing Research)**: Ingest research prompts and benchmarks from `docs/deep-research/`.
 3. **Determine PRD Modularity**:
    - If estimated PRD < 256 lines: create a single `docs/prd/prd.md`.
    - If complex / multi-domain: scaffold `docs/prd/<domain>/<topic>.md` with clear domain boundaries.
-4. **Author PRD Specifications**: Define executive summary, user personas, architecture contracts, and acceptance criteria.
-5. **Seed Next Enhancements**: Derive initial active tasks directly into `plans/next-enhancements.md`.
+4. **Author PRD Specifications**: Capture baseline capabilities (if brownfield) or MVP specs (if greenfield), executive summary, contracts, and acceptance criteria.
+5. **Seed Next Enhancements**: Populate `plans/next-enhancements.md` with the top 3 high-impact tasks.
 
 ## 🛑 Anti-Rationalization Table
 

@@ -24,7 +24,7 @@ flowchart TD
 
 | Command | Action | Description |
 |:---|:---|:---|
-| **`i` / `init`** | **Define** | Ingest research, author modular PRD in `docs/prd/`, and scaffold baseline. |
+| **`i` / `init`** | **Define** | Ingest research, scan codebase, or grill requirements into `docs/deep-research/`, then author PRD in `docs/prd/`. |
 | **`n` / `next`** | **Build & Evolve** | Implement top `[TODO]` task. Auto-runs `e` when plan is empty! |
 | **`n{x}`** (e.g. `n3`) | **Batch Build** | Execute multiple enhancement cycles sequentially in a single turn. |
 | **`e` / `enhance`** | **Plan** | Decompose PRD into exactly 3 new enhancement tasks per module. |

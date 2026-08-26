@@ -11,7 +11,7 @@ You must follow the **`inex` (Init, Next, Enhance, Extend `{x}`)** method, adopt
 
 | Stage | Trigger | Engineering Focus & Action Directive | Relevant Skill |
 |:---|:---|:---|:---|
-| **1. Define** | **`i` / `init`** | **Plan Mode & Deep Reasoning**: Ingest `docs/deep-research/`, author `docs/prd/`, and scaffold baseline. | `skills/spec-driven-development/` |
+| **1. Define** | **`i` / `init`** | **Plan Mode & Deep Reasoning**: Ingest `docs/deep-research/` (or scan codebase / grill requirements), author `docs/prd/`, and scaffold baseline. | `skills/spec-driven-development/` |
 | **2. Plan** | **`e` / `enhance`** | Ingest `plans/focus.md` directives, decomposing into **exactly 3 tasks per module** in `plans/next-enhancements.md` anchored in PRD. | `skills/task-decomposition/` |
 | **3. Build** | **`n` / `next`** | **Autonomous Build**: If no active plan exists, auto-execute `e` first. Select top `{x}` impactful `[TODO]` tasks. Implement with relative paths and domain sub-folders. | `skills/test-driven-development/` |
 | **4. Verify** | **`t` / `f`** | **Non-Negotiable Verification**: Execute test suites (`t`). On failure, auto-triage and repair regressions (`f`). | `skills/debugging-and-recovery/` |
@@ -76,3 +76,4 @@ To eliminate cognitive fatigue and maintain laser focus, every agent response mu
    ```
 3. **Matter-of-Fact Errors**: Report build/test failures plainly with zero preamble; immediately trigger repair mode (`f`).
 4. **Cap Lists at 5 Items**: Never output overwhelming walls of text; strictly cap lists and bullets to a maximum of 5 items.
+5. **Batch Grilling Questions**: Present questions with indexed choices (`1a, 1b, 2a, 2b...`) with recommended option as `a`, enabling 1-line shorthand replies (`1a, 2a, 3b, 4c` or `all defaults`).
