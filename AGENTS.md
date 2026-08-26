@@ -50,15 +50,13 @@ Agents frequently rationalize cutting corners. The following rationalizations ar
 | *"I'll use an absolute path for convenience."* | Absolute paths break cross-platform and containerized execution. | Convert to relative paths strictly. |
 | *"I'll improve the design by altering an earlier user choice."* | `[DECISION]` tags are authoritative and immutable. | Preserve `[DECISION]` exactly; ask before deviating. |
 | *"I'll skip PRD alignment since this is an internal refactor."* | Unanchored changes cause product drift. | Anchor every task in `docs/prd/` specifications. |
-
-
-
-
+| *"I'll edit submodule files."* | Submodule immutability is absolute. | Keep submodule read-only; isolate all work in host root. |
 
 ---
 
 ## 4. Core Governance Rules
 
+- **Submodule Immutability**: Embedded submodule (`autonomous-coding-agents/`) is strictly read-only. See [docs/integrations/submodule.md](docs/integrations/submodule.md).
 - **Relative Paths Only**: Strictly use relative paths across all plans, documentation, skills, and code.
 - **Hierarchical Nesting**: Group code and documentation into domain sub-folders (e.g. `docs/features/core/architecture.md`, `services/auth/token.ts`) with short, role-focused file names.
 - **256 LOC Limit**: Modularize and split any file exceeding 256 lines of code.
@@ -78,11 +76,3 @@ To eliminate cognitive fatigue and maintain laser focus, every agent response mu
    ```
 3. **Matter-of-Fact Errors**: Report build/test failures plainly with zero preamble; immediately trigger repair mode (`f`).
 4. **Cap Lists at 5 Items**: Never output overwhelming walls of text; strictly cap lists and bullets to a maximum of 5 items.
-
-
-
-
-
-
-
-

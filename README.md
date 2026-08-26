@@ -56,6 +56,7 @@ flowchart TD
 ## 🧭 Repository Links
 
 * 📜 **[AGENTS.md](AGENTS.md)**: Authoritative agent instructions & 6-stage lifecycle contract.
+* 📦 **[`docs/integrations/submodule.md`](docs/integrations/submodule.md)**: Git Submodule Integration & Host `AGENTS.md` template.
 * 🛠️ **[`skills/`](skills/README.md)**: Reusable senior engineering skills (TDD, Debug, Audit, Release).
 * 🏛️ **[`docs/features/core/architecture.md`](docs/features/core/architecture.md)**: Detailed Flywheel architecture & user decisions.
 * 📋 **[`plans/next-enhancements.md`](plans/next-enhancements.md)**: Active enhancement task list.
