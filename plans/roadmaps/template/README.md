@@ -1,6 +1,6 @@
 # Roadmap Epic Template
 
-> **Directive (`m`)**: Run phases sequentially; enforce verification gates before advancing.
+> **Directive (`d`)**: Run phases sequentially; enforce verification gates before advancing.
 
 | Phase | Plan File | Scope | Status |
 |:---|:---|:---|:---|

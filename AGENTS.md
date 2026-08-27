@@ -15,16 +15,16 @@
 | **3. Build** | `n` / `next` | Auto-run `e` if plan empty. Select top `{x}` `[TODO]`. Implement in domain sub-folders. | `skills/test-driven-development/` |
 | **4. Verify** | `t` / `f` | Run `tests/`; save visual proofs to `screenshots/{test}/{step}-{desc}.webp`. Fix (`f`) or log `issues/`. | `skills/debugging-and-recovery/` |
 | **5. Review** | `c` / `r` | Split files ≥256 LOC (`c`). Audit PRD compliance, security, `[DECISION]` adherence (`r`). | `skills/code-audit-and-refactor/` |
-| **6. Ship** | `d` / `m` | Execute `plans/roadmaps/` (`m`). Configure cloud/local routing, release changelog (`d`). | `skills/milestone-and-release/` |
-
+| **6. Ship** | `d` / `m` | Move `[DONE]` tasks to `docs/features/` & prune plan (`m`). Configure cloud/local routing, release changelog (`d`). | `skills/milestone-and-release/` |
 ---
 
-## 2. Autonomous Task Execution (`n` / `focus:`)
+## 2. Autonomous Task Execution (`n` / `focus:` / `m`)
 
 1. **Focus Pre-Flight**: `focus: <dir>` -> set `plans/focus.md` + trigger `e`. `focus: reset`/`unfocus` -> set `[FOCUS]: none` + trigger `e`. If plan completed and active focus was set, reset `[FOCUS]: none` + auto-trigger `e`.
 2. **Select**: Take top `{x}` (default 1) `[TODO]` tasks from `plans/next-enhancements.md`.
 3. **Quality Gates**: `t` (verify tests/screenshots) -> `f` (auto-repair failures) -> `c` (enforce ≤256 LOC) -> `r` (audit PRD/relative paths/decisions).
 4. **Log & Doc**: Mark `[DONE]` in `plans/next-enhancements.md`. If new capability/contract/`[DECISION]`, update `docs/features/<domain>/<topic>.md` (≤50 lines, micro-bullets).
+5. **Migrate (`m`)**: Move all `[DONE]` tasks from `plans/next-enhancements.md` to `docs/features/<domain>/<topic>.md`; update `docs/features/README.md` index; prune moved tasks from `plans/next-enhancements.md`; auto-run `e` if empty. If 0 done tasks, report 0 moved and advise running `n`.
 
 ---
 

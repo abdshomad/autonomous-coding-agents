@@ -13,7 +13,7 @@ Agentic multi-file code editing, terminal loop, and auto-repair.
   * **Define**: `@AGENTS.md trigger init` (`i`)
   * **Plan**: `@AGENTS.md trigger enhance` (`e`)
   * **Build**: `@AGENTS.md trigger next` (`n` / `n3`)
-  * **Xtend (`{x}`)**: `trigger review` (`r`), `trigger milestone` (`m`), `trigger test` (`t`), `trigger fix` (`f`), `trigger clean` (`c`), `trigger deploy` (`d`).
+  * **Xtend (`{x}`)**: `trigger review` (`r`), `trigger migrate` (`m`), `trigger test` (`t`), `trigger fix` (`f`), `trigger clean` (`c`), `trigger deploy` (`d`).
 
 ### 3. Reasoning & Plan Mode
 * Use highest reasoning model (`Claude 3.7 Sonnet (Thinking)`, `o3-mini (High)`) in **Plan Mode** for research (`docs/deep-research/`) and PRD (`docs/prd/`).

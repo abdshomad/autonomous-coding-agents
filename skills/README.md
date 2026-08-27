@@ -9,7 +9,7 @@ Modular engineering skills following the `inex` method.
 | **3. Build** | [`test-driven-development`](test-driven-development/SKILL.md) | `n` / `next` | Implement tasks via TDD, domain sub-folders, relative paths. |
 | **4. Verify** | [`debugging-and-recovery`](debugging-and-recovery/SKILL.md) | `t` / `f` | Enforce test verification & root-cause repair. |
 | **5. Review** | [`code-audit-and-refactor`](code-audit-and-refactor/SKILL.md) | `c` / `r` | Split files ≥256 LOC, audit security & `[DECISION]` rules. |
-| **6. Ship** | [`milestone-and-release`](milestone-and-release/SKILL.md) | `d` / `m` | Execute roadmaps (`plans/roadmaps/`); manage cloud/local deploys. |
+| **6. Ship** | [`milestone-and-release`](milestone-and-release/SKILL.md) | `d` / `m` | Migrate `[DONE]` tasks to `docs/features/` (`m`); cloud/local deploys (`d`). |
 | **Auto** | [`loop-orchestrator`](loop-orchestrator/SKILL.md) | `/loop` | Automate periodic execution of `n` via interval/cron. |
 
 ---

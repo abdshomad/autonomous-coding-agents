@@ -28,7 +28,7 @@ flowchart TD
 | **`e` / `enhance`** | **Plan** | Decompose PRD into 3 tasks/module in `plans/next-enhancements.md`. |
 | **`focus: <dir>`** | **Steer** | 1-batch focus override. Auto-returns to PRD roadmap when done. |
 | **`focus: reset`** | **Clear** | Cancel focus; restore PRD roadmap. |
-| **`{x}`** (`r/m/t/f/c/d`) | **Xtend (auto)** | Auto gates (`t/f/c/r`) after build + manual Milestone (`m`) & Deploy (`d`). |
+| **`{x}`** (`r/m/t/f/c/d`) | **Xtend (auto)** | Auto gates (`t/f/c/r`) after build + Migrate Features (`m`) & Deploy (`d`). |
 | **`/loop <interval>`** | **Periodic Loop** | Loop `n` every `x` min (`/loop 5m`, `/loop 10m max=6`). |
 
 ---

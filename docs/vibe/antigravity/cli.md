@@ -10,7 +10,7 @@ Orchestrate autonomous agent loops directly in terminal.
 * **Next (`n` / `n3`)**: `/goal Read AGENTS.md, execute next 3 tasks (trigger 'n3')`
 * **Xtend (`{x}`)**:
   * `r` (Review): `/goal Audit code & security per AGENTS.md (trigger 'r')`
-  * `m` (Milestone): `/goal Execute roadmap phase in plans/roadmaps/ (trigger 'm')`
+  * `m` (Migrate): `/goal Move completed tasks from plans/next-enhancements.md to docs/features/ (trigger 'm')`
   * `t` (Test) / `f` (Fix) / `c` (Clean ≤256 LOC) / `d` (Deploy)
 
 ### 2. Interval Loop (`/loop`)
