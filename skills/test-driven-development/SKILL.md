@@ -11,7 +11,7 @@ trigger: n
 1. **Pre-Flight**: If `plans/next-enhancements.md` empty/done, auto-run `e` (`skills/task-decomposition/`).
 2. **Select**: Take top `{x}` `[TODO]` task.
 3. **TDD**: Write tests in `tests/` alongside feature implementation.
-4. **Code**: Modular code in domain sub-folders; ≤256 LOC; relative paths only.
+4. **Code**: Modular code in domain sub-folders; ≤256 LOC; root-relative paths only.
 5. **Submodules**: Zero mutations. Use `patches/<submodule>/` and `scripts/`.
 6. **Quality Gate**: Run `{x}` chain (`t → f → c → r`).
 
