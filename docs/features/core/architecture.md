@@ -18,7 +18,8 @@ flowchart TD
 ## Flywheel Capabilities
 1. **Zero Backlog Overhead**: No manual ticketing.
 2. **Auto-Replanning**: Empty `plans/next-enhancements.md` auto-runs `e` (`skills/task-decomposition/`).
-3. **Quality Gates**: Every `n` runs `t` (test), `f` (fix), `c` (≤256 LOC split), `r` (audit).
+3. **Quality Gates**: Every `n` runs `t` (test), `f` (fix), `c` (≤256 LOC split), `r` (audit + Ponytail + Caveman).
+4. **Assurance & Compression**: Ponytail (code-lite), Caveman (token-lite), Gauntlet (adversarial critic on milestones).
 
 ## Execution Tiers
 1. **Manual**: `n` / `n{x}`.
@@ -27,5 +28,15 @@ flowchart TD
 
 ## Feature Modules
 * **Workflow Engine**: `e` + `n` loops, 3 tasks/section, `plans/roadmaps/` phases.
+* **Architecture & Diagrams**: `.agents/plugins/how/`, `skills/how/`, `.agents/plugins/archify/`, `skills/archify/`.
+* **Ponytail Suite**: `.agents/plugins/ponytail/`, `skills/ponytail*`, `issues/debt-ledger.md`.
+* **Caveman Suite**: `.agents/plugins/caveman/`, `skills/caveman*`, token compression.
+* **Gauntlet Suite**: `.agents/plugins/gauntlet-loop/`, `skills/gauntlet-loop/`, builder-critic.
 * **Mock & Multi-Env**: Mock API via `data/mockup/`, UI Demo/Live switcher, Cloud/Local switcher.
+
+
+
+
+
+
 

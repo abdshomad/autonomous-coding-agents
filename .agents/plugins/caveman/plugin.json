@@ -1,0 +1,6 @@
+{
+  "name": "caveman",
+  "description": "Token-compression engine for extreme telegraphic concision and zero conversational fluff",
+  "version": "1.0.0",
+  "repository": "https://github.com/JuliusBrussee/caveman"
+}

@@ -25,6 +25,42 @@ Orchestrate autonomous agent loops directly in terminal.
 ### 4. Interactive Interview (`/grill-me`)
 * `/grill-me <topic>` — Interactive alignment before major architectural steps.
 
-### 5. Plan Mode & Pro Models
+### 5. Plugins: Ponytail Suite (`agy plugin`)
+* **Install**: `agy plugin install https://github.com/DietrichGebert/ponytail` (or `.agents/plugins/ponytail/`)
+* `/ponytail [lite|full|ultra|off]` — Configure/inspect code-laziness intensity (default: `full`).
+* `/ponytail-review` — Review git diff for over-engineering; outputs delete-list.
+* `/ponytail-audit` — Full repository scan for dead code, bloat, redundant packages.
+* `/ponytail-debt` — Harvest deferred shortcuts into `issues/debt-ledger.md`.
+* `/ponytail-gain` — Render efficiency scoreboard (LOC saved, packages pruned).
+* `/ponytail-help` — Ponytail command quick reference card.
+
+### 6. Plugins: Caveman Suite (`agy plugin`)
+* **Install**: `agy plugin install https://github.com/JuliusBrussee/caveman` (or `.agents/plugins/caveman/`)
+* `/caveman [lite|full|ultra|off]` — Configure/inspect token compression mode (default: `full`).
+* `/caveman-commit` — Generate ≤ 50 char conventional commit message.
+* `/caveman-review` — Output 1-line micro-feedback on active diff/PR.
+* `/caveman-stats` — Render cumulative token savings scoreboard.
+* `/caveman-help` — Caveman command quick reference card.
+
+### 7. Plugins: Gauntlet Loop Suite (`agy plugin`)
+* **Install**: `agy plugin install https://github.com/robonuggets/gauntlet-loop` (or `duolahypercho/gauntlet-loop`)
+* `/gauntlet` (alias: `/gauntlet-loop`) — Run high-assurance Builder-Critic adversarial verification loop.
+
+### 8. Plugins: How Architecture Suite (`agy plugin`)
+* **Install**: `agy plugin install https://github.com/poteto/how` (or `.agents/plugins/how/`)
+* `/how <topic>` — Generate structured architectural explanation and subsystem file map.
+
+### 9. Plugins: Archify Diagramming Suite (`agy plugin`)
+* **Install**: `agy plugin install https://github.com/tt-a1i/archify` (or `.agents/plugins/archify/`)
+* `/archify <target>` — Generate verifiable visual SVG/HTML diagrams in `docs/features/<domain>/diagrams/`.
+* `/archify --delta` — Trace and compare visual architecture deltas across commits.
+
+### 10. Plan Mode & Pro Models
 * Use Plan Mode with highest reasoning budget for research (`docs/deep-research/`) and PRD (`docs/prd/`).
+
+
+
+
+
+
 

@@ -10,21 +10,21 @@
 
 | Stage | Trigger | Directive | Skill |
 |:---|:---|:---|:---|
-| **1. Define** | `i` / `init` | Ingest `docs/deep-research/` or grill; write `docs/prd/`; scaffold baseline. | `skills/spec-driven-development/` |
+| **1. Define** | `i` / `init` | Ingest `docs/deep-research/`, run `/how` orientation, grill; write `docs/prd/`; scaffold. | `skills/spec-driven-development/`, `skills/how/`, `skills/archify/` |
 | **2. Plan** | `e` / `enhance` | Read `plans/focus.md`; decompose exact 3 tasks/module in `plans/next-enhancements.md` from PRD. | `skills/task-decomposition/` |
-| **3. Build** | `n` / `next` | Auto-run `e` if plan empty. Select top `{x}` `[TODO]`. Implement in domain sub-folders. | `skills/test-driven-development/` |
-| **4. Verify** | `t` / `f` | Run `tests/`; save visual proofs to `screenshots/{test}/{step}-{desc}.webp`. Fix (`f`) or log `issues/`. | `skills/debugging-and-recovery/` |
-| **5. Review** | `c` / `r` | Split files ≥256 LOC, refactor CC >10 (`c`). Audit PRD compliance, security, `[DECISION]` adherence (`r`). | `skills/code-audit-and-refactor/`, `skills/cyclomatic-complexity/` |
-| **6. Ship** | `d` / `m` | Move `[DONE]` tasks to `docs/features/` & prune plan (`m`). Configure cloud/local routing, release changelog (`d`). | `skills/milestone-and-release/` |
+| **3. Build** | `n` / `next` | Auto-run `e` if plan empty. Select top `{x}` `[TODO]`. Implement with Ponytail ladder in domain sub-folders. | `skills/test-driven-development/`, `skills/ponytail/` |
+| **4. Verify** | `t` / `f` | Run `tests/`; save visual proofs to `screenshots/{test}/{step}-{desc}.webp`. Fix (`f`) or `/gauntlet`. | `skills/debugging-and-recovery/`, `skills/gauntlet-loop/` |
+| **5. Review** | `c` / `r` | Split files ≥256 LOC, refactor CC >10 (`c`). Audit PRD compliance, security, `[DECISION]`, diff/repo over-engineering (`r`). | `skills/code-audit-and-refactor/`, `skills/cyclomatic-complexity/`, `skills/ponytail-review/`, `skills/ponytail-audit/`, `skills/caveman-review/` |
+| **6. Ship** | `d` / `m` | Move `[DONE]` tasks to `docs/features/`, harvest debt (`issues/debt-ledger.md`), verify release gates (`d`). | `skills/milestone-and-release/`, `skills/ponytail-debt/`, `skills/ponytail-gain/`, `skills/caveman-commit/`, `skills/caveman-stats/`, `skills/archify/` |
 ---
 
 ## 2. Autonomous Task Execution (`n` / `focus:` / `m`)
 
 1. **Focus Pre-Flight**: `focus: <dir>` -> set `plans/focus.md` + trigger `e`. `focus: reset`/`unfocus` -> set `[FOCUS]: none` + trigger `e`. If plan completed and active focus was set, reset `[FOCUS]: none` + auto-trigger `e`.
 2. **Select**: Take top `{x}` (default 1) `[TODO]` tasks from `plans/next-enhancements.md`.
-3. **Quality Gates**: `t` (verify tests/screenshots) -> `f` (auto-repair failures) -> `c` (enforce ≤256 LOC, CC ≤10) -> `r` (audit PRD/root-relative paths/decisions).
+3. **Quality Gates**: `t` (verify tests/screenshots) -> `f` (auto-repair) -> `c` (≤256 LOC, CC ≤10) -> `r` (audit PRD/Ponytail/Caveman) -> `/gauntlet` (adversarial critic on milestones).
 4. **Log & Doc**: Mark `[DONE]` in `plans/next-enhancements.md`. If new capability/contract/`[DECISION]`, update `docs/features/<domain>/<topic>.md` (≤50 lines, micro-bullets, root-relative links only).
-5. **Migrate (`m`)**: Move all `[DONE]` tasks from `plans/next-enhancements.md` to `docs/features/<domain>/<topic>.md`; update `docs/features/README.md` index; prune moved tasks from `plans/next-enhancements.md`; auto-run `e` if empty. If 0 done tasks, report 0 moved and advise running `n`.
+5. **Migrate (`m`)**: Move all `[DONE]` tasks from `plans/next-enhancements.md` to `docs/features/<domain>/<topic>.md`; sync debt to `issues/debt-ledger.md`; update `docs/features/README.md` index; prune moved tasks from `plans/next-enhancements.md`; auto-run `e` if empty. If 0 done tasks, report 0 moved and advise running `n`.
 
 ---
 
@@ -36,6 +36,7 @@
 | Ignore `plans/focus.md` | Authoritative. Always prioritize `[FOCUS]` directives. |
 | Empty plan -> halt execution | Auto-execute `e` (3 tasks/module from PRD), then immediately execute `n{x}`. |
 | Skip testing / "small change" | Verification mandatory. Run test suite (`t`) + save screenshots before marking done. |
+| Over-engineering / unnecessary deps | Strictly forbidden. Apply Ponytail Decision Ladder (YAGNI -> stdlib -> native -> minimal code). |
 | File >256 LOC / Function CC >10 | Hard limit (`c`). Modularize files (≤256 LOC) and refactor branching into helpers (CC ≤10). |
 | Use absolute/full paths (e.g. `/...`, `file:///...`) | Strictly forbidden. Enforce root-relative paths (e.g. `docs/prd/prd.md`) across docs, plans, code, and chat responses. |
 | Alter prior user choice | `[DECISION]` tags immutable. Ask user before deviating. |
@@ -46,9 +47,9 @@
 
 ---
 
-## 4. Cognitive Output Contract (`i-have-adhd`)
+## 4. Cognitive Output Contract (`i-have-adhd` / `caveman`)
 
-1. **Extreme Concision**: Sacrifice grammar, drop filler/articles; maximize token density across responses, docs, plans, issue logs, code comments.
+1. **Extreme Concision (Caveman `full`)**: Drop filler/articles, enforce telegraphic brevity (~65% token drop); keep code/paths/commands verbatim.
 2. **Zero Fluff**: No greetings, filler, apologies, unsolicited recaps.
 3. **2-Liner Output**: Every execution turn (`n`, `i`, `e`, `{x}`) MUST end with:
    ```text

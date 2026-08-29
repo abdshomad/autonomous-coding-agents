@@ -1,0 +1,6 @@
+{
+  "name": "archify",
+  "description": "Generate interactive, verifiable visual technical diagrams and architecture maps",
+  "version": "1.0.0",
+  "repository": "https://github.com/tt-a1i/archify"
+}

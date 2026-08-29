@@ -1,0 +1,7 @@
+{
+  "name": "gauntlet-loop",
+  "description": "High-assurance builder-critic verification loop benchmarking against PRD and visual standards",
+  "version": "1.0.0",
+  "repository": "https://github.com/robonuggets/gauntlet-loop",
+  "aliases": ["https://github.com/duolahypercho/gauntlet-loop"]
+}
