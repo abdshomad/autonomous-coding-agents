@@ -1,0 +1,6 @@
+{
+  "name": "unlazy",
+  "description": "Anti-laziness skill enforcing runnable acceptance gates, depth-tree decomposition, and reverification discipline",
+  "version": "2.1.0",
+  "repository": "https://github.com/Leonxlnx/unlazy"
+}

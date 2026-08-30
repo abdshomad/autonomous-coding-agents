@@ -11,18 +11,18 @@
 | Stage | Trigger | Directive | Skill |
 |:---|:---|:---|:---|
 | **1. Define** | `i` / `init` | Ingest `docs/deep-research/`, run `/how` orientation, grill; write `docs/prd/`; scaffold. | `skills/spec-driven-development/`, `skills/how/`, `skills/archify/` |
-| **2. Plan** | `e` / `enhance` | Read `plans/focus.md`; decompose exact 3 tasks/module in `plans/next-enhancements.md` from PRD. | `skills/task-decomposition/` |
-| **3. Build** | `n` / `next` | Auto-run `e` if plan empty. Select top `{x}` `[TODO]`. Implement with Ponytail ladder in domain sub-folders. | `skills/test-driven-development/`, `skills/ponytail/` |
-| **4. Verify** | `t` / `f` | Run `tests/`; save visual proofs to `screenshots/{test}/{step}-{desc}.webp`. Fix (`f`) or `/gauntlet`. | `skills/debugging-and-recovery/`, `skills/gauntlet-loop/` |
-| **5. Review** | `c` / `r` | Split files ≥256 LOC, refactor CC >10 (`c`). Audit PRD compliance, security, `[DECISION]`, diff/repo over-engineering (`r`). | `skills/code-audit-and-refactor/`, `skills/cyclomatic-complexity/`, `skills/ponytail-review/`, `skills/ponytail-audit/`, `skills/caveman-review/` |
-| **6. Ship** | `d` / `m` | Move `[DONE]` tasks to `docs/features/`, harvest debt (`issues/debt-ledger.md`), verify release gates (`d`). | `skills/milestone-and-release/`, `skills/ponytail-debt/`, `skills/ponytail-gain/`, `skills/caveman-commit/`, `skills/caveman-stats/`, `skills/archify/` |
+| **2. Plan** | `e` / `enhance` | Read `plans/focus.md`; decompose exact 3 tasks/module in `plans/next-enhancements.md` from PRD; scaffold `GATES.md`. | `skills/task-decomposition/`, `skills/unlazy/` |
+| **3. Build** | `n` / `next` | Auto-run `e` if plan empty. Select top `{x}` `[TODO]`. Implement with Ponytail ladder in domain sub-folders; update runnable gates in `GATES.md`. | `skills/test-driven-development/`, `skills/ponytail/`, `skills/unlazy/` |
+| **4. Verify** | `t` / `f` | Run `tests/` + `gate-check.mjs --reverify GATES.md`; save visual proofs to `screenshots/{test}/{step}-{desc}.webp`. Fix (`f`) or `/gauntlet`. | `skills/debugging-and-recovery/`, `skills/gauntlet-loop/`, `skills/unlazy/` |
+| **5. Review** | `c` / `r` | Split files ≥256 LOC, refactor CC >10 (`c`). Audit PRD compliance, security, `[DECISION]`, gate lint (`gate-lint.mjs --strict`), diff/repo over-engineering (`r`). | `skills/code-audit-and-refactor/`, `skills/cyclomatic-complexity/`, `skills/ponytail-review/`, `skills/ponytail-audit/`, `skills/caveman-review/`, `skills/unlazy/` |
+| **6. Ship** | `d` / `m` | Move `[DONE]` tasks to `docs/features/`, harvest debt (`issues/debt-ledger.md`), verify release gates (`d`). | `skills/milestone-and-release/`, `skills/ponytail-debt/`, `skills/ponytail-gain/`, `skills/caveman-commit/`, `skills/caveman-stats/`, `skills/archify/`, `skills/unlazy/` |
 ---
 
 ## 2. Autonomous Task Execution (`n` / `focus:` / `m`)
 
 1. **Focus Pre-Flight**: `focus: <dir>` -> set `plans/focus.md` + trigger `e`. `focus: reset`/`unfocus` -> set `[FOCUS]: none` + trigger `e`. If plan completed and active focus was set, reset `[FOCUS]: none` + auto-trigger `e`.
 2. **Select**: Take top `{x}` (default 1) `[TODO]` tasks from `plans/next-enhancements.md`.
-3. **Quality Gates**: `t` (verify tests/screenshots) -> `f` (auto-repair) -> `c` (≤256 LOC, CC ≤10) -> `r` (audit PRD/Ponytail/Caveman) -> `/gauntlet` (adversarial critic on milestones).
+3. **Quality Gates**: `t` (verify tests/screenshots + `gate-check.mjs --reverify GATES.md`) -> `f` (auto-repair) -> `c` (≤256 LOC, CC ≤10) -> `r` (audit PRD/Ponytail/Caveman/gate-lint) -> `/gauntlet` (adversarial critic on milestones).
 4. **Log & Doc**: Mark `[DONE]` in `plans/next-enhancements.md`. If new capability/contract/`[DECISION]`, update `docs/features/<domain>/<topic>.md` (≤50 lines, micro-bullets, root-relative links only).
 5. **Migrate (`m`)**: Move all `[DONE]` tasks from `plans/next-enhancements.md` to `docs/features/<domain>/<topic>.md`; sync debt to `issues/debt-ledger.md`; update `docs/features/README.md` index; prune moved tasks from `plans/next-enhancements.md`; auto-run `e` if empty. If 0 done tasks, report 0 moved and advise running `n`.
 
@@ -35,6 +35,7 @@
 | Verbose prose / grammar fluff | Forbidden. Sacrifice grammar for extreme telegraphic concision. |
 | Ignore `plans/focus.md` | Authoritative. Always prioritize `[FOCUS]` directives. |
 | Empty plan -> halt execution | Auto-execute `e` (3 tasks/module from PRD), then immediately execute `n{x}`. |
+| Unverified / missing gates | Mandatory `GATES.md` with runnable `CHECK:` / `EXPECT:` verified via `gate-check.mjs`. |
 | Skip testing / "small change" | Verification mandatory. Run test suite (`t`) + save screenshots before marking done. |
 | Over-engineering / unnecessary deps | Strictly forbidden. Apply Ponytail Decision Ladder (YAGNI -> stdlib -> native -> minimal code). |
 | File >256 LOC / Function CC >10 | Hard limit (`c`). Modularize files (≤256 LOC) and refactor branching into helpers (CC ≤10). |
