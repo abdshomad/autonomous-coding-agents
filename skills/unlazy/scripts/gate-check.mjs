@@ -773,7 +773,8 @@ function failureOutput(output, max = 480) {
 function evidenceFor(result) {
   const clean = (value) => terminalSafe(value).replace(/[\r\n\t]+/g, " ");
   const fingerprint = outputFingerprint(result.output);
-  return ("exit=0; shell=" + clean(shell) + "; cwd=" + clean(result.cwd) +
+  const relCwd = relative(root, result.cwd) || ".";
+  return ("exit=0; shell=" + clean(shell) + "; cwd=" + clean(relCwd) +
     "; path=" + pathEvidence + "; EXPECT=matched; output-sha256=" + fingerprint.sha256 +
     "; output-bytes=" + fingerprint.bytes).slice(0, 900);
 }

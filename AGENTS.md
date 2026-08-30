@@ -10,7 +10,7 @@
 
 | Stage | Trigger | Directive | Skill |
 |:---|:---|:---|:---|
-| **1. Define** | `i` / `init` | Ingest `docs/deep-research/`, run `/how` orientation, grill; write `docs/prd/`; scaffold. | `skills/spec-driven-development/`, `skills/how/`, `skills/archify/` |
+| **1. Define** | `i` / `init` | Ingest `docs/deep-research/`, run `/how` orientation, query `graphify`, grill; write `docs/prd/`; scaffold. | `skills/spec-driven-development/`, `skills/how/`, `skills/graphify/`, `skills/archify/` |
 | **2. Plan** | `e` / `enhance` | Read `plans/focus.md`; decompose exact 3 tasks/module in `plans/next-enhancements.md` from PRD; scaffold `GATES.md`. | `skills/task-decomposition/`, `skills/unlazy/` |
 | **3. Build** | `n` / `next` | Auto-run `e` if plan empty. Select top `{x}` `[TODO]`. Implement with Ponytail ladder in domain sub-folders; update runnable gates in `GATES.md`. | `skills/test-driven-development/`, `skills/ponytail/`, `skills/unlazy/` |
 | **4. Verify** | `t` / `f` | Run `tests/` + `gate-check.mjs --reverify GATES.md`; save visual proofs to `screenshots/{test}/{step}-{desc}.webp`. Fix (`f`) or `/gauntlet`. | `skills/debugging-and-recovery/`, `skills/gauntlet-loop/`, `skills/unlazy/` |

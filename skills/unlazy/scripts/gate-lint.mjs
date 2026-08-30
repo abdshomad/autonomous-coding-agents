@@ -110,6 +110,7 @@ if (!files.length) {
 // with `echo` can still chain a real verifier, and argv containing EXPECT says
 // nothing about what the called program prints or whether it exits zero.
 const FIXED_OUTPUT_COMMAND = /^\s*(?:(?:echo|printf)(?:\s+[^&|;]*)?|true|:|exit\s+0)\s*$/i;
+const ABSOLUTE_PATH = /(?:file:\/\/\/|\/(?:mnt|home|Users|var|tmp|etc)\/|[A-Za-z]:\\)/;
 // Tokens that appear in failure output as readily as in success output.
 const WEAK_EXPECT = new Set([
   "ok", "okay", "done", "pass", "passed", "success", "successful", "succeeded",
@@ -164,6 +165,10 @@ for (const file of files) {
 
   for (const gate of live) {
     const { id, title, check, expect } = gate;
+
+    if (check && ABSOLUTE_PATH.test(check)) {
+      add(file, "error", id, "forbidden-absolute-path", 'CHECK contains forbidden absolute path: "' + check + '"');
+    }
 
     if (check && FIXED_OUTPUT_COMMAND.test(check)) {
       add(file, "warn", id, "tautological-check",

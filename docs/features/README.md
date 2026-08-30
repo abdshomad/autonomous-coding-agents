@@ -17,3 +17,4 @@ Minimal registry of capabilities and `[DECISION]` records.
 
 ## Index
 * [core/architecture.md](core/architecture.md): Core platform architecture and contracts.
+* [core/graphify.md](core/graphify.md): Graphify AST knowledge graph and orientation engine.

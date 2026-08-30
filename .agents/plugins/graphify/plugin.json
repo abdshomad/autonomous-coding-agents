@@ -1,0 +1,6 @@
+{
+  "name": "graphify",
+  "description": "Codebase knowledge graph generator and AST dependency query engine",
+  "version": "1.0.0",
+  "repository": "https://github.com/Graphify-Labs/graphify"
+}

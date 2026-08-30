@@ -6,6 +6,10 @@
 # Visual test verification screenshots
 screenshots/
 
+# Graphify cache and virtual environment
+.graphify/
+.venv-graphify/
+
 # Dependencies and caches
 node_modules/
 __pycache__/
