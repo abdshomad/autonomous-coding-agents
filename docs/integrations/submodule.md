@@ -1,40 +1,41 @@
 # Submodule Integration Guide
 
-Embed `autonomous-coding-agents` as a git submodule to run the `inex` workflow.
+Embed `autonomous-coding-agents` and its modular skill ecosystem as 100% read-only Git submodules.
 
-## 1. Setup
+---
+
+## 1. Submodule Ecosystem Matrix (9 Submodules)
+
+| Skill / Plugin | Submodule Path | Upstream Repository |
+|:---|:---|:---|
+| `ai-memory` | `submodules/ai-memory` | `https://github.com/akitaonrails/ai-memory.git` |
+| `archify` | `submodules/archify` | `https://github.com/tt-a1i/archify.git` |
+| `caveman` | `submodules/caveman` | `https://github.com/JuliusBrussee/caveman.git` |
+| `gauntlet-loop` | `submodules/gauntlet-loop` | `https://github.com/robonuggets/gauntlet-loop.git` |
+| `graphify` | `submodules/graphify` | `https://github.com/Graphify-Labs/graphify.git` |
+| `how` | `submodules/how` | `https://github.com/poteto/how.git` |
+| `no-mistakes` | `submodules/no-mistakes` | `https://github.com/kunchenguid/no-mistakes.git` |
+| `ponytail` | `submodules/ponytail` | `https://github.com/DietrichGebert/ponytail.git` |
+| `unlazy` | `submodules/unlazy` | `https://github.com/Leonxlnx/unlazy.git` |
+
+---
+
+## 2. Synchronization & Health Check
+
 ```bash
-git submodule add https://github.com/<org>/autonomous-coding-agents.git autonomous-coding-agents
-git submodule update --init --recursive
+# Initialize and sync all 9 submodules
+scripts/submodules-sync.sh sync
+
+# Verify health, tracking, and clean immutability status
+scripts/submodules-sync.sh check
+
+# Display submodule commit matrix
+scripts/submodules-sync.sh status
 ```
 
-## 2. Host `AGENTS.md` Template
-Place in host root as `AGENTS.md`:
-```markdown
-# Agent Instructions
-> **Workflow**: Follow [autonomous-coding-agents/AGENTS.md](./autonomous-coding-agents/AGENTS.md).
-> [!CAUTION]
-> **Submodule Immutability**: Submodules 100% READ-ONLY. Zero mutations. Store diffs in parent `patches/<submodule-name>/`, wrappers in `scripts/`, runtime inject. Keep submodule `git status` clean.
-```
+---
 
-## 3. Host Structure
-```text
-host-repo/
-├── AGENTS.md                          # References submodule/AGENTS.md
-├── autonomous-coding-agents/          # Submodule (100% READ-ONLY)
-│   ├── AGENTS.md
-│   └── skills/                        # Shared skills
-├── patches/autonomous-coding-agents/  # Parent overlay patches
-├── scripts/                           # Parent runners & wrappers
-├── docs/prd/                          # Host PRD
-├── issues/                            # Blockers (001-<topic>.md)
-├── plans/                             # focus.md & next-enhancements.md
-├── screenshots/                       # Step captures (gitignored)
-├── src/ / tests/                      # Application code & tests
-└── .env.local / .secrets              # Configs & secrets (gitignored)
-```
-
-## 4. Rules
-* **Host Scope**: All code, builds, tests, screenshots, plans, secrets live strictly in host root.
-* **Submodule Immutability**: Never mutate submodule files directly. Use `patches/<submodule-name>/` and `scripts/`.
-* **Brownfield**: Pre-existing code triggers `i` scan into `docs/deep-research/codebase-analysis.md` with Task 1 as *Baseline Run & Smoke Test*.
+## 3. Three-Tiered Immutability Architecture
+* **Tier 1 (Upstream)**: `submodules/<name>/` is 100% read-only.
+* **Tier 2 (Patches)**: `patches/<name>/` stores unified diff overlays.
+* **Tier 3 (Runners & Skills)**: `scripts/<name>.sh` wraps execution; `.agents/plugins/<name>/` defines agent contracts.

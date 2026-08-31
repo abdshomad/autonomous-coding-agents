@@ -4,3 +4,24 @@
 [submodule "submodules/ai-memory"]
 	path = submodules/ai-memory
 	url = https://github.com/akitaonrails/ai-memory.git
+[submodule "submodules/how"]
+	path = submodules/how
+	url = https://github.com/poteto/how.git
+[submodule "submodules/archify"]
+	path = submodules/archify
+	url = https://github.com/tt-a1i/archify.git
+[submodule "submodules/gauntlet-loop"]
+	path = submodules/gauntlet-loop
+	url = https://github.com/robonuggets/gauntlet-loop.git
+[submodule "submodules/unlazy"]
+	path = submodules/unlazy
+	url = https://github.com/Leonxlnx/unlazy.git
+[submodule "submodules/ponytail"]
+	path = submodules/ponytail
+	url = https://github.com/DietrichGebert/ponytail.git
+[submodule "submodules/graphify"]
+	path = submodules/graphify
+	url = https://github.com/Graphify-Labs/graphify.git
+[submodule "submodules/caveman"]
+	path = submodules/caveman
+	url = https://github.com/JuliusBrussee/caveman.git
