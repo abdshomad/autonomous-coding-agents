@@ -4,7 +4,7 @@ import path from 'node:path';
 
 // Match real absolute filesystem paths (e.g., /mnt/..., /home/..., /Users/..., file:///..., C:\...)
 const REAL_FS_PATH = /(?:file:\/\/\/|(?:^|[\s"'`([<{])(?:\/mnt\/|\/home\/|\/Users\/|[a-zA-Z]:\\))/;
-const IGNORE_DIRS = new Set(['.git', 'node_modules', '.graphify', '.venv-graphify']);
+const IGNORE_DIRS = new Set(['.git', 'node_modules', '.graphify', '.venv-graphify', 'submodules']);
 
 function checkDirectory(dir) {
   const violations = [];

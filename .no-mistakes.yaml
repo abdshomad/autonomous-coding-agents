@@ -1,0 +1,18 @@
+# .no-mistakes.yaml - Pre-PR Quality Gate Configuration
+agents:
+  - antigravity
+  - claude
+  - cursor
+  - opencode
+
+commands:
+  lint: "node scripts/verify-no-absolute-paths.mjs"
+  gate: "node skills/unlazy/scripts/gate-lint.mjs GATES.md"
+  test: "node skills/unlazy/scripts/gate-check.mjs --reverify GATES.md"
+
+auto_fix:
+  review: 0
+  lint: 1
+  format: 1
+
+push_target: origin

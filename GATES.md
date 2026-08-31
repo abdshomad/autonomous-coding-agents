@@ -1,50 +1,40 @@
-# Acceptance Ledger: Graphify Integration
+# Acceptance Ledger: no-mistakes Integration
 
-OWNS: plans/**, scripts/**, skills/graphify/**, .agents/plugins/graphify/**, docs/**
+OWNS: plans/**, scripts/**, skills/no-mistakes/**, .agents/plugins/no-mistakes/**, docs/**, patches/no-mistakes/**, .no-mistakes.yaml
 
-Scope: Acceptance criteria for Graphify Engine, Skill/Plugin integration, and Visual Artifact gates.
+Scope: Acceptance criteria for no-mistakes Engine, Submodule tracking, Pre-PR pipeline runner, Plugin/Skill integration, and Quality gates.
 
-- [x] G1: graphify runner script validates environment and CLI availability
-  CHECK: node scripts/verify-graphify-runner.mjs
-  EXPECT: graphify-runner passed
-  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=776dca353330ec2210f92c3f7aff0d2d612753cdf3ebab487522276dfca9d201; output-bytes=23
+- [x] G1: submodule tracking and patch directory immutability verified
+  CHECK: node scripts/verify-no-mistakes-submodule.mjs
+  EXPECT: no-mistakes-submodule passed
+  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=9900dd63a6b3325c907e40e08f08fc77b2acc60f7c0bb56a45b2c7e932cd167f; output-bytes=29
 
-- [x] G2: ast parsing generates deterministic graph representation in cache directory
-  CHECK: node scripts/verify-graphify-ast.mjs
-  EXPECT: graphify-ast passed
-  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=9ea19bef51ca401f8dc220dd3c56fd21c4e9f665bd1554608f8cf0985310615f; output-bytes=20
+- [x] G2: runner script executes doctor status help and pipeline commands
+  CHECK: node scripts/verify-no-mistakes-runner.mjs
+  EXPECT: no-mistakes-runner passed
+  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=c44faff6ed88f79c17cb77f9775661181e4bec0b8640b20b34c839be7c708292; output-bytes=26
 
-- [x] G3: gitignore rules protect graph cache and secret tokens
-  CHECK: node scripts/verify-graphify-ignore.mjs
-  EXPECT: graphify-ignore passed
-  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=ab60b3af291cbd198e5a213740b1242cff50c61f538ad45083a69419de572bad; output-bytes=23
+- [x] G3: configuration declares multi-agent cascade and gate steps
+  CHECK: node scripts/verify-no-mistakes-config.mjs
+  EXPECT: no-mistakes-config passed
+  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=1a351abc80926ab33fda493b11e9f9d072007f936cdc449fd2fafd3cf14ac32c; output-bytes=26
 
-- [x] G4: graphify skill definition matches standard plugin schema
-  CHECK: node scripts/verify-graphify-skill.mjs
-  EXPECT: graphify-skill passed
-  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=40b74be9cd92c05684cdd49770b2c1960eae199d4aecb798521aee0341e60f66; output-bytes=22
+- [x] G4: plugin and skill definitions adhere to standard schema
+  CHECK: node scripts/verify-no-mistakes-skill.mjs
+  EXPECT: no-mistakes-skill passed
+  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=95adfaeada92789725951b81f4e50bbc102fbe9450c22483458e32b25b057407; output-bytes=25
 
-- [x] G5: lifecycle contract in AGENTS.md indexes graphify under stage 1 define
-  CHECK: node scripts/verify-graphify-lifecycle.mjs
-  EXPECT: graphify-lifecycle passed
-  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=a161d296ca3ae232f41df22268fddf994af9a0da89e066017faaeb848fb59ff6; output-bytes=26
+- [x] G5: debt escalation hook logs unresolved findings to debt ledger
+  CHECK: node scripts/verify-no-mistakes-escalation.mjs
+  EXPECT: no-mistakes-escalation passed
+  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=f087e0b5a5cf474ad17428ef2c4412d5bbdf7a0fcd074f951e57d3c08a526f00; output-bytes=30
 
-- [x] G6: query and impact cli commands return structural symbol relations
-  CHECK: node scripts/verify-graphify-cli.mjs
-  EXPECT: graphify-cli passed
-  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=7e45ff19ac0cff7391c90db2f6c1cdcb5519c37ddc4b781d030d8c81b8becc4a; output-bytes=20
+- [x] G6: zero real absolute filesystem paths across repository
+  CHECK: node scripts/verify-no-absolute-paths.mjs
+  EXPECT: no-absolute-paths passed
+  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=e1f3f809effeffbd93d3ce3c82a103c998867e68b843b02e8eb36098e2f47fc5; output-bytes=25
 
-- [x] G7: graph visualizer exports interactive graph to docs diagram directory
-  CHECK: node scripts/verify-graphify-export.mjs
-  EXPECT: graphify-export passed
-  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=c6523df2808e8371c4b37b3d7529693daecd186c1dde4d5a0c1cbd53f8455a6b; output-bytes=23
-
-- [x] G8: orientation workflow integrates graphify query output
-  CHECK: node scripts/verify-graphify-orientation.mjs
-  EXPECT: graphify-orientation passed
-  EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=72587d5eb5d035cce3ff39d1174a438d513cf5495b39902d456abd85d6c5d401; output-bytes=28
-
-- [x] G9: gate ledger satisfies strict quality linting
+- [x] G7: gate ledger satisfies strict quality linting
   CHECK: node skills/unlazy/scripts/gate-lint.mjs GATES.md
   EXPECT: LINT OK
   EVIDENCE: exit=0; shell=/bin/sh; cwd=.; path=23842e7cdffb/64 entries; EXPECT=matched; output-sha256=48630b7361dd44ee870917b12c3d19b9d7bdea738aaca16bb04d4cab83b772d2; output-bytes=8

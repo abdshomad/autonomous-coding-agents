@@ -1,0 +1,6 @@
+{
+  "name": "no-mistakes",
+  "description": "Pre-PR quality gate, disposable worktree verification runner, and auto-repair proxy",
+  "version": "1.0.0",
+  "repository": "https://github.com/kunchenguid/no-mistakes"
+}
