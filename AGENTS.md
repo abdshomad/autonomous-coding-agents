@@ -10,12 +10,12 @@
 
 | Stage | Trigger | Minimal Core Skill(s) | Lazy-Loaded Triggers (JIT) | Directive |
 |:---|:---|:---|:---|:---|
-| **1. Define** | `i` / `init` | `skills/spec-driven-development/`, `skills/how/` | `skills/graphify/` (on AST query), `skills/archify/` (on diagram request) | Ingest `docs/deep-research/`, `/how` orientation, author PRD in `docs/prd/`; scaffold. |
+| **1. Define** | `i` / `init` | `skills/spec-driven-development/`, `skills/how/` | `skills/graphify/` (on AST query), `skills/archify/` (on diagram request), `skills/ai-memory/` (on memory recall) | Ingest `docs/deep-research/`, `/how` orientation, query memory wiki, author PRD in `docs/prd/`; scaffold. |
 | **2. Plan** | `e` / `enhance` | `skills/task-decomposition/` | `skills/unlazy/` (on recursive depth > 2) | Read `plans/focus.md`; decompose exact 3 tasks/module (≤150 LOC/task) in `plans/next-enhancements.md`; scaffold `GATES.md`. |
 | **3. Build** | `n` / `next` | `skills/test-driven-development/`, `skills/ponytail/` | `skills/unlazy/` (on multi-part stall/recurse) | Auto-run `e` if plan empty. Select top `{x}` `[TODO]`. Implement with Ponytail ladder in domain sub-folders; update `GATES.md`. |
 | **4. Verify** | `t` / `f` | *(None on clean `t`)*, `skills/debugging-and-recovery/` on `f` | `skills/gauntlet-loop/` (on `/gauntlet` or release), `skills/unlazy/` (on gate reverify) | Run `tests/` + `gate-check.mjs --reverify GATES.md`; visual proofs to `screenshots/{test}/{step}-{desc}.webp`. Fix (`f`). |
 | **5. Review** | `c` / `r` | `skills/code-audit-and-refactor/`, `skills/cyclomatic-complexity/`, `skills/ponytail-review/`, `skills/ponytail-audit/`, `skills/caveman-review/`, `skills/unlazy/` | *(Full review bundle)* | Split files ≥256 LOC, refactor CC >10 (`c`). Audit PRD compliance, security, `[DECISION]`, gate lint (`gate-lint.mjs --strict`), diff review (`r`). |
-| **6. Ship** | `d` / `m` | `skills/milestone-and-release/`, `skills/ponytail-debt/`, `skills/ponytail-gain/`, `skills/caveman-commit/`, `skills/caveman-stats/`, `skills/archify/`, `skills/unlazy/`, `skills/no-mistakes/` | *(Full shipping bundle)* | Move `[DONE]` tasks to `docs/features/`, harvest debt (`issues/debt-ledger.md`), verify release gates & pre-PR proxy (`d`). |
+| **6. Ship** | `d` / `m` | `skills/milestone-and-release/`, `skills/ponytail-debt/`, `skills/ponytail-gain/`, `skills/caveman-commit/`, `skills/caveman-stats/`, `skills/archify/`, `skills/unlazy/`, `skills/no-mistakes/`, `skills/ai-memory/` | *(Full shipping bundle)* | Move `[DONE]` tasks to `docs/features/`, harvest debt (`issues/debt-ledger.md`), finalize memory wiki (`scripts/ai-memory.sh finalize`), verify release gates (`d`). |
 ---
 
 ## 2. Autonomous Task Execution (`n` / `focus:` / `m`)

@@ -1,0 +1,24 @@
+# .ai-memory.toml - Marker Configuration for ai-memory
+[workspace]
+name = "autonomous-coding-agents"
+storage_path = ".ai-memory"
+
+[project]
+name = "inex-core"
+description = "Autonomous Coding Agents & inex Lifecycle Framework"
+
+[capture]
+ignore_paths = [
+  ".git",
+  "node_modules",
+  ".graphify",
+  ".venv-graphify",
+  ".secrets",
+  "submodules"
+]
+
+[slots]
+per_user = false
+
+[wiki]
+categories = ["_rules", "decisions", "procedures", "gotchas", "handoffs"]

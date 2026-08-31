@@ -1,0 +1,6 @@
+{
+  "name": "ai-memory",
+  "description": "Persistent long-term memory wiki and cross-agent handoff engine",
+  "version": "1.0.0",
+  "repository": "https://github.com/akitaonrails/ai-memory"
+}

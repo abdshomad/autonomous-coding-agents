@@ -1,3 +1,6 @@
 [submodule "submodules/no-mistakes"]
 	path = submodules/no-mistakes
 	url = https://github.com/kunchenguid/no-mistakes.git
+[submodule "submodules/ai-memory"]
+	path = submodules/ai-memory
+	url = https://github.com/akitaonrails/ai-memory.git
