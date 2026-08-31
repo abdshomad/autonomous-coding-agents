@@ -1,4 +1,4 @@
-# Next Enhancements Plan: Full Submodules Architecture Expansion
+# Next Enhancements Plan: R&D Flywheel Integration
 
 > **Directives**: Update via `e`. Build top tasks via `n` / `n{x}`.
 
@@ -16,3 +16,8 @@
 - [x] `3.1` Implement unified health oracle in `scripts/verify-all-submodules.mjs`.
 - [x] `3.2` Update `GATES.md` with runnable submodule acceptance gates.
 - [x] `3.3` Reverifying all gates via `gate-check.mjs --reverify GATES.md` and verify with `gate-lint.mjs`.
+
+## 4. R&D Engine Landscape Ingest
+- [x] `4.1` Research index gate: `scripts/verify-research-ingest.mjs` fails if any of 8 briefs missing or lacks 2026-08-31 baseline marker. Wire G7 in GATES.md.
+- [ ] `4.2` Weekly delta stub: `docs/deep-research/weekly-delta.md` template + `scripts/verify-weekly-delta.mjs` parser gate.
+- [ ] `4.3` PRD cross-links: `docs/prd/prd.md` links to 8 briefs with P0 implications; `scripts/verify-prd-research-links.mjs` verifier.
