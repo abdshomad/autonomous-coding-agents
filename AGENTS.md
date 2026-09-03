@@ -10,7 +10,7 @@
 
 | Stage | Trigger | Minimal Core Skill(s) | Lazy-Loaded Triggers (JIT) | Directive |
 |:---|:---|:---|:---|:---|
-| **1. Define** | `i` / `init` | `skills/spec-driven-development/`, `skills/how/` | `skills/graphify/` (on AST query), `skills/archify/` (on diagram request), `skills/ai-memory/` (on memory recall) | Ingest `docs/deep-research/`, `/how` orientation, query memory wiki, author PRD in `docs/prd/`; scaffold. |
+| **1. Define** | `i` / `init` | `skills/spec-driven-development/`, `skills/how/`, `skills/grill-me/` | `skills/graphify/` (on AST query), `skills/archify/` (on diagram request), `skills/ai-memory/` (on memory recall) | Ingest `docs/deep-research/`, auto-invoke `/grill-me` clarification interview, query memory wiki, author PRD in `docs/prd/`; scaffold. |
 | **2. Plan** | `e` / `enhance` | `skills/task-decomposition/` | `skills/unlazy/` (on recursive depth > 2) | Read `plans/focus.md`; decompose exact 3 tasks/module (≤150 LOC/task) in `plans/next-enhancements.md`; scaffold `GATES.md`. |
 | **3. Build** | `n` / `next` | `skills/test-driven-development/`, `skills/ponytail/` | `skills/unlazy/` (on multi-part stall/recurse) | Auto-run `e` if plan empty. Select top `{x}` `[TODO]`. Implement with Ponytail ladder in domain sub-folders; update `GATES.md`. |
 | **4. Verify** | `t` / `f` | *(None on clean `t`)*, `skills/debugging-and-recovery/` on `f` | `skills/gauntlet-loop/` (on `/gauntlet` or release), `skills/unlazy/` (on gate reverify) | Run `tests/` + `gate-check.mjs --reverify GATES.md`; visual proofs to `screenshots/{test}/{step}-{desc}.webp`. Fix (`f`). |

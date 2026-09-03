@@ -8,6 +8,7 @@ SUBMODULES=(
   "caveman"
   "gauntlet-loop"
   "graphify"
+  "grill-me"
   "how"
   "no-mistakes"
   "ponytail"
@@ -19,15 +20,15 @@ show_help() {
 Usage: scripts/submodules-sync.sh <command> [options]
 
 Commands:
-  sync          Initialize and update all 9 Git submodules recursively
-  check|doctor  Verify that all 9 submodules are present, clean, and tracked
+  sync          Initialize and update all 10 Git submodules recursively
+  check|doctor  Verify that all 10 submodules are present, clean, and tracked
   status        Display commit hash and remote URL for each submodule
   help          Show this help message
 HELP_EOF
 }
 
 cmd_sync() {
-  echo "[submodules-sync] Synchronizing all 9 Git submodules..."
+  echo "[submodules-sync] Synchronizing all 10 Git submodules..."
   git submodule update --init --recursive
   echo "[submodules-sync] Sync complete."
 }
@@ -58,7 +59,7 @@ cmd_check() {
   done
 
   if [ $errors -eq 0 ]; then
-    echo "[submodules-sync] All 9 submodules healthy and tracked."
+    echo "[submodules-sync] All 10 submodules healthy and tracked."
     return 0
   else
     echo "[submodules-sync] Failed with $errors errors."

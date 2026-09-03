@@ -1,7 +1,7 @@
 ---
 title: "Test Runner Decision"
 category: "decisions"
-date: "2026-08-31"
+date: "2026-09-03"
 entities: []
 ---
 

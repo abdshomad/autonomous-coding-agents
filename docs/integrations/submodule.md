@@ -4,7 +4,7 @@ Embed `autonomous-coding-agents` and its modular skill ecosystem as 100% read-on
 
 ---
 
-## 1. Submodule Ecosystem Matrix (9 Submodules)
+## 1. Submodule Ecosystem Matrix (10 Submodules)
 
 | Skill / Plugin | Submodule Path | Upstream Repository |
 |:---|:---|:---|
@@ -13,6 +13,7 @@ Embed `autonomous-coding-agents` and its modular skill ecosystem as 100% read-on
 | `caveman` | `submodules/caveman` | `https://github.com/JuliusBrussee/caveman.git` |
 | `gauntlet-loop` | `submodules/gauntlet-loop` | `https://github.com/robonuggets/gauntlet-loop.git` |
 | `graphify` | `submodules/graphify` | `https://github.com/Graphify-Labs/graphify.git` |
+| `grill-me` | `submodules/grill-me` | `https://github.com/mattpocock/skills.git` |
 | `how` | `submodules/how` | `https://github.com/poteto/how.git` |
 | `no-mistakes` | `submodules/no-mistakes` | `https://github.com/kunchenguid/no-mistakes.git` |
 | `ponytail` | `submodules/ponytail` | `https://github.com/DietrichGebert/ponytail.git` |
@@ -23,7 +24,7 @@ Embed `autonomous-coding-agents` and its modular skill ecosystem as 100% read-on
 ## 2. Synchronization & Health Check
 
 ```bash
-# Initialize and sync all 9 submodules
+# Initialize and sync all 10 submodules
 scripts/submodules-sync.sh sync
 
 # Verify health, tracking, and clean immutability status

@@ -25,3 +25,6 @@
 [submodule "submodules/caveman"]
 	path = submodules/caveman
 	url = https://github.com/JuliusBrussee/caveman.git
+[submodule "submodules/grill-me"]
+	path = submodules/grill-me
+	url = https://github.com/mattpocock/skills.git

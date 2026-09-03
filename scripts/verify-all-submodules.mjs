@@ -1,4 +1,4 @@
-// scripts/verify-all-submodules.mjs - Comprehensive health oracle for all 9 git submodules
+// scripts/verify-all-submodules.mjs - Comprehensive health oracle for all 10 git submodules
 import fs from 'node:fs';
 
 const SUBMODULES = [
@@ -7,6 +7,7 @@ const SUBMODULES = [
   'caveman',
   'gauntlet-loop',
   'graphify',
+  'grill-me',
   'how',
   'no-mistakes',
   'ponytail',
