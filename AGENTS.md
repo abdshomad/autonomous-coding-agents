@@ -26,6 +26,7 @@
 4. **Quality Gates**: `t` (verify tests/screenshots + `gate-check.mjs --reverify GATES.md`) -> `f` (auto-repair via `skills/debugging-and-recovery/` & `scripts/no-mistakes.sh fix`) -> `c` (≤256 LOC, CC ≤10) -> `r` (audit PRD/Ponytail/Caveman/gate-lint) -> `/gauntlet` (adversarial critic on milestones) -> `d` (`scripts/no-mistakes.sh proxy`).
 5. **Log & Doc**: Mark `[DONE]` in `plans/next-enhancements.md`. If new capability/contract/`[DECISION]`, update `docs/features/<domain>/<topic>.md` (≤50 lines, micro-bullets, root-relative links only).
 6. **Migrate (`m`)**: Move all `[DONE]` tasks from `plans/next-enhancements.md` to `docs/features/<domain>/<topic>.md`; sync debt to `issues/debt-ledger.md`; update `docs/features/README.md` index; prune moved tasks from `plans/next-enhancements.md`; auto-run `e` if empty. If 0 done tasks, report 0 moved and advise running `n`.
+7. **Ad-Hoc Features**: When implementing unprompted/unplanned user features directly, verify via gates (`t/f/c/r`), then immediately document in `docs/features/<domain>/<topic>.md` (inferred domain, standard template) and register in `docs/features/README.md` index. Keep `plans/next-enhancements.md` untouched.
 
 ---
 
@@ -44,6 +45,7 @@
 | Alter prior user choice | `[DECISION]` tags immutable. Ask user before deviating. |
 | Edit submodule files | Never edit submodule directly. Save overlay in `patches/<submodule>/`, wrap in `scripts/`. Keep `git status` clean. |
 | Secrets in `.env` / commit | Store secrets strictly in gitignored `.secrets`. Use `.env.{local,production}` for config. Provide `.example`s. |
+| Unplanned feature unrecorded | Mandatory immediate sync to `docs/features/<domain>/<topic>.md` and `docs/features/README.md`; keep `plans/next-enhancements.md` untouched. |
 | Unresolved blocker | Log in numbered file `issues/00X-<short-title>.md`. |
 | Cloud / Mock drift | Segregate mock data in `data/mockup/` with UI toggle. Support cloud vs local switcher. |
 
